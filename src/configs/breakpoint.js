@@ -1,3 +1,4 @@
 module.exports = {
-  mobileBreakPoint: 767,
+  mobileBreakPoint: 768,
+  padBreakPoint: 992,
 }

@@ -35,7 +35,13 @@ module.exports = {
 				test: /\.css$/,
 				use: [
 					{ loader: 'style-loader' },
-					{ loader: 'css-loader' },
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							localIdentName: '[name]-[hash:base64:8]-[local]',
+						},
+					},
 					{ loader: 'postcss-loader' },
 				],
 			},
@@ -56,7 +62,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebPackPlugin({
 			template: "./src/index.html",
-			filename: "./index.html",	
+			filename: "./index.html",
 		}),
 		new CleanWebpackPlugin(['dist']),
 	],
