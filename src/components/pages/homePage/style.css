@@ -1,4 +1,14 @@
-.home {
-  font-size: 40px;
-  color: red;
+.banner-container {
+  display: block;
+}
+
+.banner-img {
+  width: 100%;
+  content: url('../../../assets/img/banner_web.png');
+}
+
+@media (max-width: 767px) {
+  .banner-img {
+    content: url('../../../assets/img/banner_mobile.png');
+  }
 }

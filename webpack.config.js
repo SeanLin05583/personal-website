@@ -6,11 +6,12 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		filename: 'index_bundle.js'
+		filename: 'bundle.js'
 	},
 	resolve: {
 		alias: {
 			components: path.resolve(__dirname, 'src/components/'),
+			assets: path.resolve(__dirname, 'src/assets/'),
 		}
 	},
 	module: {
@@ -38,7 +39,7 @@ module.exports = {
 						loader: 'css-loader',
 						options: {
 							modules: true,
-							localIdentName: '[name]-[local]-[hash:base64:8]',
+							localIdentName: '[name]-[hash:base64:8]-[local]',
 						},
 					},
 					{ loader: 'postcss-loader' },
@@ -57,6 +58,18 @@ module.exports = {
 					},
 					{ loader: 'postcss-loader' },
 					{ loader: 'sass-loader' },
+				]
+			},
+			{
+				test: /\.(svg|png|jpg)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							modules: true,
+							localIdentName: '[name]-[local]-[hash:base64:8]',
+						},
+					}
 				]
 			}
 		]
