@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://seanlin05583.github.io/seanlin-profile",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +23,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "gh-pages": "^2.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.29.5",
