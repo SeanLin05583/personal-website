@@ -1,14 +1,16 @@
 var path = require('path');
+const moment = require('moment');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+const imgPath = process.env.MODE === 'publish' ? '/seanlin-profile' : '/';
 
 module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		filename: 'bundle.js'
+		filename: `bundle.js?${moment().format('YYYY-MM-DD HH:mm')}`,
 	},
 	resolve: {
 		alias: {
@@ -21,38 +23,30 @@ module.exports = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				use: {
-					loader: "babel-loader"
-				}
+				use: { loader: "babel-loader" },
 			},
 			{
 				test: /\.html$/,
 				use: [
-					{
-						loader: "html-loader"
-					}
-				]
+					{ loader: "html-loader" },
+				],
 			},
 			{
 				test: /\.css$/,
 				use: [
 					{ loader: 'style-loader' },
-					{
-						loader: 'css-loader',
-					},
+					{ loader: 'css-loader' },
 					{ loader: 'postcss-loader' },
-				]
+				],
 			},
 			{
 				test: /\.scss$/,
 				use: [
 					{ loader: 'style-loader' },
-					{
-						loader: 'css-loader',
-					},
+					{ loader: 'css-loader' },
 					{ loader: 'postcss-loader' },
 					{ loader: 'sass-loader' },
-				]
+				],
 			},
 			{
 				test: /\.(svg|png|jpg)$/,
@@ -60,25 +54,19 @@ module.exports = {
 					{
 						loader: 'file-loader',
 						options: {
-							modules: true,
-							localIdentName: '[name]-[local]-[hash:base64:8]',
+							name: 'asset/img/[name].[hash:7].[ext]',
+							publicPath: imgPath,
 						},
-					}
-				]
+					},
+				],
 			}
 		]
 	},
 	plugins: [
 		new HtmlWebPackPlugin({
 			template: "./src/index.html",
-			filename: "./index.html"
+			filename: "./index.html",
 		}),
-		new CopyWebpackPlugin([
-			{
-				from: './src/assets/img',
-				to: './assets/img'
-			}
-		]),
 		new CleanWebpackPlugin(['dist']),
 	],
 	optimization: {

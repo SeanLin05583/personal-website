@@ -4,11 +4,11 @@
 
 .banner-img {
   width: 100%;
-  content: url('/assets/img/banner_web.png');
+  content: url('~assets/img/banner_web.png');
 }
 
 @media (max-width: 767px) {
   .banner-img {
-    content: url('/assets/img/banner_mobile.png');
+    content: url('~assets/img/banner_mobile.png');
   }
 }
