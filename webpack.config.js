@@ -1,6 +1,8 @@
 var path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	entry: './src/index.js',
@@ -37,10 +39,6 @@ module.exports = {
 					{ loader: 'style-loader' },
 					{
 						loader: 'css-loader',
-						options: {
-							modules: true,
-							localIdentName: '[name]-[hash:base64:8]-[local]',
-						},
 					},
 					{ loader: 'postcss-loader' },
 				]
@@ -51,10 +49,6 @@ module.exports = {
 					{ loader: 'style-loader' },
 					{
 						loader: 'css-loader',
-						options: {
-							modules: true,
-							localIdentName: '[name]-[local]-[hash:base64:8]',
-						},
 					},
 					{ loader: 'postcss-loader' },
 					{ loader: 'sass-loader' },
@@ -79,6 +73,13 @@ module.exports = {
 			template: "./src/index.html",
 			filename: "./index.html"
 		}),
+		new CopyWebpackPlugin([
+			{
+				from: './src/assets/img',
+				to: './assets/img'
+			}
+		]),
+		new CleanWebpackPlugin(['dist']),
 	],
 	optimization: {
 		minimizer: [new UglifyJsPlugin()],
