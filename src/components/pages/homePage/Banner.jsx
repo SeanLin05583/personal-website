@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import style from './style.scss';
+import style from './style.css';
 
 const cssClass = classNames.bind(style);
 

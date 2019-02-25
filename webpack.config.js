@@ -10,7 +10,7 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		filename: `bundle.js?${moment().format('YYYY-MM-DD HH:mm')}`,
+		filename: `bundle.js?[hash:7]${moment().format('YYYY-MM-DD HH:mm')}`,
 	},
 	resolve: {
 		alias: {
@@ -40,15 +40,6 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.scss$/,
-				use: [
-					{ loader: 'style-loader' },
-					{ loader: 'css-loader' },
-					{ loader: 'postcss-loader' },
-					{ loader: 'sass-loader' },
-				],
-			},
-			{
 				test: /\.(svg|png|jpg)$/,
 				use: [
 					{
@@ -65,7 +56,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebPackPlugin({
 			template: "./src/index.html",
-			filename: "./index.html",
+			filename: "./index.html",	
 		}),
 		new CleanWebpackPlugin(['dist']),
 	],

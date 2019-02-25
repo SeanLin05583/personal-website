@@ -5,10 +5,9 @@
 .banner-img {
   width: 100%;
   content: url('~assets/img/banner_web.png');
-}
+  filter: blur(1px);
 
-@media (max-width: 767px) {
-  .banner-img {
+  @mixin isMobile {
     content: url('~assets/img/banner_mobile.png');
   }
 }
