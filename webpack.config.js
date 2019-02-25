@@ -1,7 +1,13 @@
+var path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+	entry: './src/index.js',
+	output: {
+		path: path.resolve(__dirname, './dist'),
+		filename: 'index_bundle.js'
+	},
 	module: {
 		rules: [
 			{
@@ -57,6 +63,6 @@ module.exports = {
 		}),
 	],
 	optimization: {
-    minimizer: [new UglifyJsPlugin()],
-  },
+		minimizer: [new UglifyJsPlugin()],
+	},
 };
