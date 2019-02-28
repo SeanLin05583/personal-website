@@ -1,6 +1,7 @@
 var path = require('path');
 const moment = require('moment');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -51,7 +52,7 @@ module.exports = {
 					{
 						loader: 'file-loader',
 						options: {
-							name: 'asset/img/[name].[hash:7].[ext]',
+							name: 'assets/img/[name].[hash:7].[ext]',
 							publicPath: imgPath,
 						},
 					},
@@ -65,6 +66,22 @@ module.exports = {
 			filename: "./index.html",
 		}),
 		new CleanWebpackPlugin(['dist']),
+		new FaviconsWebpackPlugin({
+			logo: path.resolve(__dirname, 'src/assets/img/favicon.png'),
+			prefix: 'assets/img/icons/',
+			icons: {
+				android: false,
+				appleIcon: true,
+				appleStartup: false,
+				coast: false,
+				favicons: true,
+				firefox: true,
+				opengraph: false,
+				twitter: false,
+				yandex: false,
+				windows: false
+			}
+		}),
 	],
 	optimization: {
 		minimizer: [new UglifyJsPlugin()],

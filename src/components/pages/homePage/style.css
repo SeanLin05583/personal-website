@@ -1,9 +1,17 @@
-.banner-img {
+.banner-img-web {
   width: 100%;
-  content: url('~assets/img/banner_web.png');
-  
+
   @mixin isMobile {
-    content: url('~assets/img/banner_mobile.png');
+    display: none;
+  }
+}
+
+.banner-img-mobile {
+  width: 100%;
+  display: none;
+
+  @mixin isMobile {
+    display: initial;
   }
 }
 
