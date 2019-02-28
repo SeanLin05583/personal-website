@@ -8,7 +8,7 @@ export default class NavButton extends PureComponent {
   render() {
     const { className, onClick, isOpen } = this.props;
     return (
-      <div className={cx('nav', isOpen && 'open', className)} onClick={onClick}>
+      <div className={cx('container', isOpen && 'open', className)} onClick={onClick}>
         <span />
         <span />
         <span />

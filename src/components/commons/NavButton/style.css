@@ -1,50 +1,32 @@
-.nav {
+.container {
   position: relative;
-  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1em;
   width: 1em;
-  height: .9em;
+  height: 1em;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
   cursor: pointer;
 
   span {
-    display: block;
-    position: absolute;
-    font-size: 1em;
-    left: 0;
     height: .18em;
     width: 100%;
     background: #666666;
     border-radius: .06em;
     opacity: 1;
+    font-size: 1em;
     transform: rotate(0deg);
     transition: .25s ease-in-out;
-
-    &:nth-child(1) {
-      font-size: 1em;
-      top: 0px;
-      transform-origin: left center;
-    }
-
-    &:nth-child(2) {
-      font-size: 1em;
-      top: .36em;
-      transform-origin: left center;
-    }
-
-    &:nth-child(3) {
-      font-size: 1em;
-      top: .72em;
-      transform-origin: left center;
-    }
+    transform-origin: left center;
   }
 
   &.open {
     span {
       &:nth-child(1) {
         transform: rotate(45deg);
-        top: -.06em;
-        width: 1.2em;  
+        width: 1.165em;  
       }
       
       &:nth-child(2) {
@@ -54,8 +36,7 @@
       
       &:nth-child(3) {
         transform: rotate(-45deg);
-        top: .78em;
-        width: 1.2em;  
+        width: 1.165em;  
       }
     }
   }
