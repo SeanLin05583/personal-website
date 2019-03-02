@@ -14,14 +14,26 @@ const config = {
 };
 
 export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.bannerRef = React.createRef();
+    this.state = {
+      isHeaderFixed: false,
+    }
+  }
   componentDidMount() {
     new CanvasNest(this.main, config);
+    const { isHeaderFixed } = this.state;
+    window.addEventListener('scroll', () => {
+      this.setState({ isHeaderFixed: this.bannerRef.current.getBannerHeight() < window.scrollY && !isHeaderFixed });
+    });
   }
   render() {
+    const { isHeaderFixed } = this.state;
     return (
       <div>
-        <Banner />
-        <Header />
+        <Banner ref={this.bannerRef} />
+        <Header isHeaderFixed={isHeaderFixed} />
         <div
           ref={ref => this.main = ref}
           className={cx('intro')}

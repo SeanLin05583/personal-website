@@ -10,6 +10,10 @@ export default class Header extends PureComponent {
     isMenuOpen: false,
   }
 
+  static defaultProps = {
+    isHeaderFixed: false,
+  }
+
   navClick = () => {
     const { isMenuOpen } = this.state;
     this.setState({ isMenuOpen: !isMenuOpen });
@@ -17,8 +21,9 @@ export default class Header extends PureComponent {
 
   render() {
     const { isMenuOpen } = this.state;
+    const { isHeaderFixed } = this.props;
     return (
-      <header className={cx('header-container')}>
+      <header className={cx('header-container', isHeaderFixed && 'fixed')}>
         <div className={cx('header', isMenuOpen && 'open')}>
           <h1 className={cx('title')}>Sean Lin's profile</h1>
           <NavButton isOpen={isMenuOpen} onClick={this.navClick} />
