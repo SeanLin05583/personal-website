@@ -1,6 +1,9 @@
 .header-container {
   position: relative;
   display: none;
+  animation-name: header-fade-in;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
 
   @mixin isMobile {
     display: block;
@@ -12,6 +15,16 @@
     display: block;
     z-index: 100;
     width: 100%;
+  }
+}
+
+@keyframes header-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 

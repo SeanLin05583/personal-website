@@ -15,8 +15,8 @@ export default class Banner extends React.Component {
         <div className={cx('banner-title-container')}>
           <h1 className={cx('banner-title')}>Sean Lin's profile</h1>
           <ul className={cx('banner-menu')}>
-            <li>Skill</li>
-            <li>Experience</li>
+            <li>Skills</li>
+            <li>Experiences</li>
             <li>Contact</li>
           </ul>
         </div>
