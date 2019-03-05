@@ -20,6 +20,7 @@ module.exports = {
 			mixins: {
 				isMobile: overrideAtRule(`media screen and (max-width: ${breakpoint.mobileBreakPoint}px)`),
 				isPad: overrideAtRule(`media screen and (min-width: ${breakpoint.mobileBreakPoint + 1}px) and (max-width: ${breakpoint.padBreakPoint}px)`),
+				isPc: overrideAtRule(`media screen and (min-width: ${breakpoint.pcBreakPoint + 1}px)`),
 			}
 		}),
 		require('postcss-nested'),
