@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Experience from './Experience.jsx';
+import Experiences from './Experiences';
+import Skills from './Skills';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
@@ -14,7 +15,8 @@ export default class Intro extends Component {
         className={cx('intro-container')}
       >
         <div className={cx('intro')}>
-        <Experience />
+        <Skills />
+        <Experiences />
         </div>
       </div>
     )

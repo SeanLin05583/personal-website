@@ -3,6 +3,7 @@ import CanvasNest from 'canvas-nest.js';
 import Banner from './Banner';
 import Header from './Header';
 import Intro from './Intro';
+import Footer from './Footer';
 
 const config = {
   color: '25,172,255',
@@ -32,6 +33,7 @@ export default class Home extends React.Component {
         <Banner ref={this.bannerRef} />
         <Header isHeaderFixed={isHeaderFixed} />
         <Intro divRef={ref => this.introRef = ref}/>
+        <Footer />
       </div>
     );
   }

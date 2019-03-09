@@ -12,6 +12,7 @@ export default class Banner extends React.Component {
       <div className={cx('banner-container')} ref={ref => this.bannerContainer = ref}>
         <img className={cx('banner-img-web')} src={require('../../../../assets/img/banner_web.png')} />
         <img className={cx('banner-img-mobile')} src={require('../../../../assets/img/banner_mobile.png')} />
+        <div className={cx('banner-filter')} />
         <div className={cx('banner-title-container')}>
           <h1 className={cx('banner-title')}>Sean Lin's profile</h1>
           <ul className={cx('banner-menu')}>

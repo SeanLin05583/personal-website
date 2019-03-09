@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
-const imgAccupass = require('../../../../assets/img/logo-accupass.png');
-const imgLeo = require('../../../../assets/img/logo-leo.png');
-
 const cx = classNames.bind(style);
+
+const imgAccupass = require('../../../../../assets/img/logo-accupass.png');
+const imgLeo = require('../../../../../assets/img/logo-leo.png');
 
 const expList = [
   {
@@ -20,7 +20,7 @@ const expList = [
   },
 ];
 
-export default class Experience extends Component {
+export default class Experiences extends Component {
   renderExperiences = () => {
     return expList.map((exp, index) =>
       <div key={`${index}${exp.title}`} className={cx('exp')}>
