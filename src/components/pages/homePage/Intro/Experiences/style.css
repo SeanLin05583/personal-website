@@ -22,6 +22,26 @@
       .exp-title {
         flex-direction: row-reverse;
       }
+
+      .exp-job-title {
+        text-align: left;
+      }
+    }
+  }
+
+  @mixin isMobile {
+    &:nth-child(odd) {
+      flex-direction: initial;
+  
+      .exp-content-container {
+        .exp-title {
+          flex-direction: initial;
+        }
+  
+        .exp-job-title {
+          text-align: right;
+        }
+      }
     }
   }
 }
@@ -67,7 +87,7 @@
   align-items: center;
 
   h3 {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
     margin: 0;
   }
@@ -80,6 +100,12 @@
   }
 }
 
+.exp-job-title {
+  margin: 10px 0;
+  font-size: 20px;
+  text-align: right;
+}
+
 .exp-content {
   p {
     display: list-item;
@@ -89,11 +115,15 @@
   }
 }
 
-.exp-logo-container {
+.exp-pc-logo-container {
   margin: 30px 0;
   width: 100%;
   display: flex;
   justify-content: center;
+
+  @mixin isMobile {
+    display: none;
+  }
 }
 
 .exp-logo {
