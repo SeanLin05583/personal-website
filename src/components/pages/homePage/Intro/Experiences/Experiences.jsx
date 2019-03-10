@@ -9,13 +9,15 @@ const imgLeo = require('../../../../../assets/img/logo-leo.png');
 
 const expList = [
   {
-    title: '2018.06 - 現今 Accupass',
+    title: '2018.06 - 現今',
+    companyTitle: 'Accupass',
     jobTitle: '前端工程師',
     img: imgAccupass,
     imgCircle: true,
   },
   {
-    title: '2017.02 - 2018.06 國眾電腦',
+    title: '2017.02 - 2018.06',
+    companyTitle: '國眾電腦',
     jobTitle: 'MIS維運工程師 / 前端工程師',
     img: imgLeo,
     imgCircle: false,
@@ -39,9 +41,17 @@ export default class Experiences extends Component {
             <span />
             <h3>{exp.title}</h3>
           </div>
-          <p className={cx('exp-job-title')}>
-            {exp.jobTitle}
-          </p>
+          <div className={cx('exp-sub-title-container')}>
+            <img className={cx('exp-logo-mobile', exp.imgCircle && 'img-circle')} src={exp.img} />
+            <div className={cx('exp-sub-title')}>
+              <p className={cx('exp-company-title')}>
+                {exp.companyTitle}
+              </p>
+              <p className={cx('exp-job-title')}>
+                {exp.jobTitle}
+              </p>
+            </div>
+          </div>
           <div className={cx('exp-content')}>
             <p>test</p>
             <p>test</p>
