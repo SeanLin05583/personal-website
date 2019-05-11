@@ -7,6 +7,11 @@ export default class Banner extends React.Component {
   getBannerHeight = () => {
     return this.bannerContainer.getBoundingClientRect().height;
   }
+
+  getWebMenuBottomPosition = () => {
+    return this.menuContainer.getBoundingClientRect().bottom;
+  }
+
   render() {
     return (
       <div className={cx('banner-container')} ref={ref => this.bannerContainer = ref}>
@@ -15,7 +20,7 @@ export default class Banner extends React.Component {
         <div className={cx('banner-filter')} />
         <div className={cx('banner-title-container')}>
           <h1 className={cx('banner-title')}>Sean Lin's profile</h1>
-          <ul className={cx('banner-menu')}>
+          <ul className={cx('banner-menu')} ref={ref => this.menuContainer = ref}>
             <li>Skills</li>
             <li>Experiences</li>
             <li>Contact</li>

@@ -18,7 +18,10 @@
     "canvas-nest.js": "^2.0.4",
     "classnames": "^2.2.6",
     "react": "^16.8.2",
-    "react-dom": "^16.8.2"
+    "react-dom": "^16.8.2",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
@@ -41,6 +44,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-mixins": "^6.2.1",
     "postcss-nested": "^4.1.2",
+    "redux-logger": "^3.0.6",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.1",
