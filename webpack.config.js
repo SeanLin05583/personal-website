@@ -2,7 +2,7 @@ var path = require('path');
 const moment = require('moment');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const imgPath = process.env.MODE === 'publish' ? '/seanlin-profile' : '/';
@@ -87,6 +87,6 @@ module.exports = {
 		}),
 	],
 	optimization: {
-		minimizer: [new UglifyJsPlugin()],
+		minimizer: [new TerserPlugin()],
 	},
 };
