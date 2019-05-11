@@ -19,6 +19,7 @@ export default class Home extends React.Component {
       isHeaderFixed: false,
     }
   }
+
   componentDidMount() {
     new CanvasNest(this.introRef, config);
     const { isHeaderFixed } = this.state;
@@ -26,6 +27,7 @@ export default class Home extends React.Component {
       this.setState({ isHeaderFixed: this.bannerRef.current.getBannerHeight() < window.scrollY && !isHeaderFixed });
     });
   }
+  
   render() {
     const { isHeaderFixed } = this.state;
     return (

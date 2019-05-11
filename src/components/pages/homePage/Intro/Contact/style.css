@@ -60,16 +60,11 @@
   }
 }
 
-.contact-fb {
-  color: #4267b2;
-}
-
 .contact-linkin {
   color: #0077B5;
-  margin-left: 15px;
 }
 
-.contact-line {
-  color: #02B802;
+.contact-github {
+  color: #000000;
   margin-left: 15px;
 }

@@ -1,5 +1,7 @@
 .header-container {
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
   display: none;
   animation-name: header-fade-in;
   animation-duration: .3s;

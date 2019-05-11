@@ -31,14 +31,11 @@ export default class Skills extends Component {
           </div>
         </div>
         <div className={cx('contact-social-media-container')}>
-          <a href="https://www.facebook.com/seanlin05583" target="_blank">
-            <i className={cx('fab', 'fa-facebook-square', 'contact-btn', 'contact-fb')} />
-          </a>
           <a href="https://www.linkedin.com/in/sean-lin-06b2b4155/" target="_blank">
             <i className={cx('fab', 'fa-linkedin', 'contact-btn', 'contact-linkin')} />
           </a>
-          <a href="https://line.me/ti/p/FaOCU4DX6j" target="_blank">
-            <i className={cx('fab', 'fa-line', 'contact-btn', 'contact-line')} />
+          <a href="https://github.com/SeanLin05583" target="_blank">
+            <i className={cx('fab', 'fa-github', 'contact-btn', 'contact-github')} />
           </a>
         </div>
       </div>
