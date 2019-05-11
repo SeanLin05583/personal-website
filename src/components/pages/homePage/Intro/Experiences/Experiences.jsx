@@ -4,8 +4,10 @@ import style from './style.css';
 
 const cx = classNames.bind(style);
 
-const imgAccupass = require('../../../../../assets/img/logo-accupass.png');
+const imgAccupass = require('../../../../../assets/img/logo-accupass.svg');
+const imgAccupasMobile = require('../../../../../assets/img/logo-accupass-mobile.png');
 const imgLeo = require('../../../../../assets/img/logo-leo.png');
+const imgLeoMobile = require('../../../../../assets/img/logo-leo-mobile.png');
 
 const expList = [
   {
@@ -13,14 +15,17 @@ const expList = [
     companyTitle: 'Accupass',
     jobTitle: '前端工程師',
     img: imgAccupass,
-    imgCircle: true,
+    imgMobile: imgAccupasMobile,
+    imgStyle: 'exp-logo-accupass',
   },
   {
     title: '2017.02 - 2018.06',
     companyTitle: '國眾電腦',
     jobTitle: 'MIS維運工程師 / 前端工程師',
     img: imgLeo,
+    imgMobile: imgLeoMobile,
     imgCircle: false,
+    imgStyle: 'exp-logo-leo',
   },
 ];
 
@@ -29,7 +34,7 @@ export default class Experiences extends Component {
     return expList.map((exp, index) =>
       <div key={`${index}${exp.title}`} className={cx('exp')}>
         <div className={cx('exp-pc-logo-container')}>
-          <img className={cx('exp-logo', exp.imgCircle && 'img-circle')} src={exp.img} />
+          <img className={cx(exp.imgStyle)} src={exp.img} />
         </div>
         <div className={cx('exp-progress-bar-container')}>
           <span />
@@ -42,7 +47,7 @@ export default class Experiences extends Component {
             <h3>{exp.title}</h3>
           </div>
           <div className={cx('exp-sub-title-container')}>
-            <img className={cx('exp-logo-mobile', exp.imgCircle && 'img-circle')} src={exp.img} />
+            <img className={cx('exp-logo-mobile', exp.imgStyle)} src={exp.imgMobile || exp.img} />
             <div className={cx('exp-sub-title')}>
               <p className={cx('exp-company-title')}>
                 {exp.companyTitle}

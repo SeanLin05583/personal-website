@@ -2,10 +2,74 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+  padding: 20px;
 
   h2 {
     font-size: 24px;
     font-weight: 500;
     text-align: center;
   }
+}
+
+.contact-my-name {
+  font-size: 26px;
+
+  @mixin isMobile {
+    font-size: 22px;
+  }
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.contact-method-title {
+  font-size: 22px;
+  color: #999999;
+
+  @mixin isMobile {
+    font-size: 18px;
+  }
+}
+
+.contact-method-content {    
+  font-size: 20px;
+  margin-left: 20px;
+  font-weight: 600;
+
+  @mixin isMobile {
+    font-size: 16px;
+  }
+}
+
+.contact-social-media-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.contact-btn {
+  font-size: 40px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.contact-fb {
+  color: #4267b2;
+}
+
+.contact-linkin {
+  color: #0077B5;
+  margin-left: 15px;
+}
+
+.contact-line {
+  color: #02B802;
+  margin-left: 15px;
 }

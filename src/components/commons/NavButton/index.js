@@ -1,1 +1,1 @@
-export default from './NavButton.jsx';
+export { default } from './NavButton.jsx';

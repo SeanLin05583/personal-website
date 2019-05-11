@@ -15,8 +15,16 @@
   font-size: 24px;
   padding: 0 20px;
 
+  @mixin isMobile {
+    padding: 0 20px 0 10px;
+  }
+
   &:nth-child(odd) {
     flex-direction: row-reverse;
+
+    .exp-pc-logo-container {
+      justify-content: flex-end;
+    }
 
     .exp-content-container {
       .exp-title {
@@ -152,30 +160,38 @@
   margin: 30px 0;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 
   @mixin isMobile {
     display: none;
   }
 }
 
-.exp-logo {
-  width: 150px;
-  height: 150px;
-  margin: 20px 50px;
-}
-
 .exp-logo-mobile {
   display: none;
-  width: 75px;
-  height: 75px;
-  margin: 0 20px;
 
   @mixin isMobile {
+    width: 75px;
+    height: 75px;
     display: initial;
+    padding: 0;
+    margin-left: 20px;
   }
 }
 
-.img-circle {
-  border-radius: 50%;
+.exp-logo-accupass {
+  border-radius: 3px;
+  padding: 9px 20px;
+  background-color: #0088D2;
+  width: auto;
+  height: 50px;
+
+  @mixin isMobile {
+    border-radius: 50%;
+  }
+}
+
+.exp-logo-leo {
+  width: auto;
+  height: 50px;
 }

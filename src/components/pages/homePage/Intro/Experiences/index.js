@@ -1,1 +1,1 @@
-export default from './Experiences.jsx';
+export { default } from './Experiences.jsx';
