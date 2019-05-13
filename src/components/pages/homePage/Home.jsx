@@ -6,6 +6,7 @@ import Header from './Header';
 import Intro from './Intro';
 import Footer from './Footer';
 import { breakPointActions } from 'actions';
+import { smoothScroll } from 'utils';
 import breakpoint from 'configs/breakpoint';
 
 const config = {
@@ -13,6 +14,12 @@ const config = {
   count: 250,
   zIndex: -100,
 };
+
+const blockList = [
+  'Skills',
+  'Experiences',
+  'Contact',
+];
 
 class Home extends React.Component {
   constructor(props) {
@@ -24,7 +31,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    new CanvasNest(this.introRef, config);
+    new CanvasNest(this.introDomRef, config);
 
     this.setBreakPoint();
     window.addEventListener('scroll', this.setHeaderFixed);
@@ -66,13 +73,31 @@ class Home extends React.Component {
     }
   }
 
+  handleScrollToBlock = (targetBlock) => () => {
+    const targetY = this.introRef.getTargetBlockTop(targetBlock) + this.introDomRef.offsetTop - 70;
+    smoothScroll(targetY);
+  }
+
   render() {
     const { isHeaderFixed } = this.state;
+    const { isMobile } = this.props.breakPointState;
     return (
-      <div>
-        <Banner ref={this.bannerRef} />
-        <Header isHeaderFixed={isHeaderFixed} />
-        <Intro divRef={ref => this.introRef = ref} />
+      <div style={{ scrollBehavior: 'smooth' }}>
+        <Banner
+          ref={this.bannerRef}
+          onScrollToBlock={this.handleScrollToBlock}
+          blockList={blockList}
+        />
+        <Header
+          isHeaderFixed={isHeaderFixed}
+          isMobile={isMobile}
+          onScrollToBlock={this.handleScrollToBlock}
+          blockList={blockList}
+        />
+        <Intro
+          domRef={ref => this.introDomRef = ref}
+          ref={ref => this.introRef = ref}
+        />
         <Footer />
       </div>
     );

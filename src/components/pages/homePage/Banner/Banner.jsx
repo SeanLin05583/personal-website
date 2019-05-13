@@ -13,6 +13,7 @@ export default class Banner extends React.Component {
   }
 
   render() {
+    const { onScrollToBlock, blockList } = this.props;
     return (
       <div className={cx('banner-container')} ref={ref => this.bannerContainer = ref}>
         <img className={cx('banner-img-web')} src={require('../../../../assets/img/banner_web.png')} />
@@ -21,9 +22,9 @@ export default class Banner extends React.Component {
         <div className={cx('banner-title-container')}>
           <h1 className={cx('banner-title')}>Sean Lin's profile</h1>
           <ul className={cx('banner-menu')} ref={ref => this.menuContainer = ref}>
-            <li>Skills</li>
-            <li>Experiences</li>
-            <li>Contact</li>
+            {blockList.map(blockName =>
+              <li key={blockName} onClick={onScrollToBlock(blockName)}>{blockName}</li>
+            )}
           </ul>
         </div>
       </div>

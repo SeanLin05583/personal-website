@@ -70,8 +70,9 @@ export default class Experiences extends Component {
     );
   }
   render() {
+    const { domRef } = this.props;
     return (
-      <div className={cx('exp-container')}>
+      <div ref={domRef} className={cx('exp-container')}>
         <h2>Experiences</h2>
         {this.renderExperiences()}
       </div>

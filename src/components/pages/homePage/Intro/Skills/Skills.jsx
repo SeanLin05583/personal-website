@@ -6,8 +6,9 @@ const cx = classNames.bind(style);
 
 export default class Skills extends Component {
   render() {
+    const { domRef } = this.props;
     return (
-      <div className={cx('skills-container')}>
+      <div ref={domRef} className={cx('skills-container')}>
         <h2>Skills</h2>
       </div>
     )

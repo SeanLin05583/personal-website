@@ -20,6 +20,7 @@ module.exports = {
 			actions: path.resolve(__dirname, 'src/actions/'),
 			reducers: path.resolve(__dirname, 'src/reducers/'),
 			configs: path.resolve(__dirname, 'src/configs/'),
+			utils: path.resolve(__dirname, 'src/utils/'),
 		}
 	},
 	module: {

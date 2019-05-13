@@ -6,8 +6,9 @@ const cx = classNames.bind(style);
 
 export default class Skills extends Component {
   render() {
+    const { domRef } = this.props;
     return (
-      <div className={cx('contact-container')}>
+      <div ref={domRef} className={cx('contact-container')}>
         <h2>Contact Me</h2>
         <div>
           <div className={cx('contact-my-name')}>
