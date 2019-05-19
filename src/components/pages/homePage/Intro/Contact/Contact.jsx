@@ -9,7 +9,7 @@ export default class Skills extends Component {
     const { domRef } = this.props;
     return (
       <div ref={domRef} className={cx('contact-container')}>
-        <h2>Contact Me</h2>
+        <h2 className={cx('contact-container-title')}>Contact Me</h2>
         <div>
           <div className={cx('contact-my-name')}>
             TZU HSUAN LIN

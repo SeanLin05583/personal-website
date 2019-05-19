@@ -2,36 +2,107 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+}
 
-  h2 {
-    font-size: 24px;
-    font-weight: 500;
-    text-align: center;
+.skills-container-title {
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+
+  @mixin isPad {
+    font-size: 22px;
+  }
+
+  @mixin isMobile {
+    font-size: 20px;
   }
 }
 
 .skills-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
-  margin-top: 30px;
-  padding: 0 100px;
+
+  @mixin isPc {
+    flex-direction: row;
+    padding: 0 100px;
+  }
 }
 
 .skill-container {
   flex: 0 0 33%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   margin-bottom: 20px;
+
+  @mixin isPc {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .skill-img {
-  width: 50%;
+  width: 70px;
+
+  @mixin isPad {
+    width: 100px;
+  }
+
+  @mixin isPc {
+    width: 50%;
+  }
+}
+
+.skill-content {
+  margin-left: 10px;
+  min-width: 150px;
+
+  @mixin isPc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
 }
 
 .skill-title {
   margin: 0;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
+
+  @mixin isPad {
+    font-size: 20px;
+    margin-left: 3px;
+  }
+
+  @mixin isMobile {
+    font-size: 18px;
+    margin-left: 3px;
+  }
+
+  @mixin isPc {
+    text-align: center;
+  }
+}
+
+.skill-stars-container {
+  font-size: 23px;
+  margin-top: 10px;
+
+  @mixin isPad {
+    font-size: 21px;
+  }
+
+  @mixin isMobile {
+    font-size: 19px;
+  }
+}
+
+.skill-star {
+  position: relative;
+  color: #FFFA00;
+  margin-left: 2px;
+  text-shadow: 1px 1px 3px #000000, 1px 1px 2px #000000;
 }

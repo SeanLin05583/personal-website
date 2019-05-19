@@ -1,19 +1,21 @@
 .footer-container {
   position: relative;
+}
 
-  p {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 22px;
+.footer-copy-right {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 22px;
+
+  @mixin isPad {
+    font-size: 17px;
   }
 
   @mixin isMobile {
-    p {
-      font-size: 18px;
-    }
+    font-size: 14px;
   }
 }
 

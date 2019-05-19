@@ -14,36 +14,57 @@ const skillList = [
   {
     name: 'JavaScript',
     img: jsImg,
+    star: 4,
   },
   {
     name: 'HTML',
     img: htmlImg,
+    star: 4,
   },
   {
     name: 'CSS',
     img: cssImg,
+    star: 3.5,
   },
   {
     name: 'React',
     img: reactImg,
+    star: 5,
   },
   {
     name: 'Redux',
     img: reduxImg,
+    star: 4,
   },
 ]
 
 export default class Skills extends Component {
+  renderStars = (starNumber) => {
+    let starArray = new Array(Math.floor(starNumber)).fill().map((val, index) =>
+      <i key={index} className={cx('fas fa-star', 'skill-star')} />
+    )
+
+    if (Math.floor(starNumber) !== starNumber) {
+      starArray.push(
+        <i key={starNumber + 1} className={cx('fas fa-star-half', 'skill-star')} />
+      )
+    }
+
+    return <div className={cx('skill-stars-container')}>{starArray}</div>
+  }
   render() {
     const { domRef } = this.props;
     return (
       <div ref={domRef} className={cx('skills-wrapper')}>
-        <h2>Skills</h2>
+        <h2 className={cx('skills-container-title')}>Skills</h2>
         <div className={cx('skills-container')}>
           {skillList.map(skill =>
             <div key={skill.name} className={cx('skill-container')}>
               <img src={skill.img} className={cx('skill-img')} />
-              <p className={cx('skill-title')}>{skill.name}</p>
+              <div className={cx('skill-content')}>
+                <p className={cx('skill-title')}>{skill.name}</p>
+                {this.renderStars(skill.star)}
+              </div>
             </div>
           )}
         </div>

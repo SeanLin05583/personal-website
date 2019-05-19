@@ -43,8 +43,8 @@ export default class Experiences extends Component {
         </div>
         <section className={cx('exp-content-container')}>
           <div className={cx('exp-title')}>
-            <span />
-            <h3>{exp.title}</h3>
+            <span className={cx('exp-title-divider')}/>
+            <h3 className={cx('exp-title-time')}>{exp.title}</h3>
           </div>
           <div className={cx('exp-sub-title-container')}>
             <img className={cx('exp-logo-mobile', exp.imgStyle)} src={exp.imgMobile || exp.img} />
@@ -73,7 +73,7 @@ export default class Experiences extends Component {
     const { domRef } = this.props;
     return (
       <div ref={domRef} className={cx('exp-container')}>
-        <h2>Experiences</h2>
+        <h2 className={cx('exp-container-title')}>Experiences</h2>
         {this.renderExperiences()}
       </div>
     )
