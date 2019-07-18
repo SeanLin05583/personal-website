@@ -31,7 +31,10 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    new CanvasNest(this.introDomRef, config);
+    // not IE browser
+    if(!/Trident/.test(navigator.userAgent)) {
+      new CanvasNest(this.introDomRef, config);
+    }
 
     this.setBreakPoint();
     window.addEventListener('scroll', this.setHeaderFixed);
