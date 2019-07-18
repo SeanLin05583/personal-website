@@ -7,14 +7,15 @@ const cssImg = require('../../../../../assets/img/css.svg');
 const htmlImg = require('../../../../../assets/img/html.svg');
 const reactImg = require('../../../../../assets/img/react.svg');
 const reduxImg = require('../../../../../assets/img/redux.svg');
+const gitImg = require('../../../../../assets/img/git.svg');
 
 const cx = classNames.bind(style);
 
 const skillList = [
   {
-    name: 'JavaScript',
-    img: jsImg,
-    star: 4,
+    name: 'React',
+    img: reactImg,
+    star: 4.5,
   },
   {
     name: 'HTML',
@@ -27,13 +28,13 @@ const skillList = [
     star: 3.5,
   },
   {
-    name: 'React',
-    img: reactImg,
-    star: 5,
-  },
-  {
     name: 'Redux',
     img: reduxImg,
+    star: 4,
+  },
+  {
+    name: 'Git',
+    img: gitImg,
     star: 4,
   },
 ]
