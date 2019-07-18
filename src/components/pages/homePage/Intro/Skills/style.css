@@ -31,10 +31,10 @@
 }
 
 .skill-container {
-  flex: 0 0 33%;
   display: flex;
   align-items: center;
   flex-direction: row;
+  width: 33%;
   margin-bottom: 20px;
 
   @mixin isPc {
@@ -45,13 +45,17 @@
 
 .skill-img {
   width: 70px;
+  max-height: 70px;
 
   @mixin isPad {
     width: 100px;
+    max-height: 100px
   }
 
   @mixin isPc {
     width: 50%;
+    height: 100%;
+    max-height: none;
   }
 }
 
