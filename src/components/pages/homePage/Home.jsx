@@ -32,7 +32,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     // not IE browser
-    if(!/Trident/.test(navigator.userAgent)) {
+    if (!/Trident/.test(navigator.userAgent)) {
       new CanvasNest(this.introDomRef, config);
     }
 
@@ -77,8 +77,8 @@ class Home extends React.Component {
   }
 
   handleScrollToBlock = (targetBlock) => () => {
-    const targetY = this.introRef.getTargetBlockTop(targetBlock) + this.introDomRef.offsetTop - 70;
-    smoothScroll(targetY);
+    const targetY = this.introRef.getTargetBlockTop(targetBlock) - 70;
+    smoothScroll(/Trident/.test(navigator.userAgent) ? targetY : (targetY + this.introDomRef.offsetTop));
   }
 
   render() {
