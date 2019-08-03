@@ -2,6 +2,7 @@
   position: absolute;
   left: 0;
   right: 0;
+  min-width: 320px;
   display: none;
   animation-name: header-fade-in;
   animation-duration: .3s;

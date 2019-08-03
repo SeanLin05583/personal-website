@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
 const cx = classNames.bind(style);
 
-export default class Skills extends Component {
+export default class Skills extends PureComponent {
   render() {
     const { domRef } = this.props;
     return (

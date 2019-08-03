@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
@@ -39,7 +39,7 @@ const skillList = [
   },
 ]
 
-export default class Skills extends Component {
+export default class Skills extends PureComponent {
   renderStars = (starNumber) => {
     let starArray = new Array(Math.floor(starNumber)).fill().map((val, index) =>
       <i key={index} className={cx('fas fa-star', 'skill-star')} />

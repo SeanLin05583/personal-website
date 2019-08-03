@@ -16,6 +16,7 @@ const config = {
 };
 
 const blockList = [
+  'AboutMe',
   'Skills',
   'Experiences',
   'Contact',

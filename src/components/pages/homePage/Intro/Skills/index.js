@@ -1,1 +1,1 @@
-export default from './Skills.jsx';
+export { default } from './Skills.jsx';

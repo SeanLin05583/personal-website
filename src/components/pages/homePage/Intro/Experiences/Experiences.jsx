@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
@@ -40,7 +40,7 @@ const expList = [
   },
 ];
 
-export default class Experiences extends Component {
+export default class Experiences extends PureComponent {
   renderExperiences = () => {
     return expList.map((exp, index) =>
       <div key={`${index}${exp.title}`} className={cx('exp')}>
