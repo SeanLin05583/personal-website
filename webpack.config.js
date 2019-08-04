@@ -21,7 +21,8 @@ module.exports = {
 			reducers: path.resolve(__dirname, 'src/reducers/'),
 			configs: path.resolve(__dirname, 'src/configs/'),
 			utils: path.resolve(__dirname, 'src/utils/'),
-		}
+		},
+		extensions: ['.js', '.jsx'],
 	},
 	module: {
 		rules: [

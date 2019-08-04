@@ -24,7 +24,7 @@
 }
 
 .aboutme-inner {
-  padding: 0 10px;
+  padding: 0 20px;
 
   @mixin isPc {
     padding: 0;

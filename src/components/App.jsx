@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 import reducers from 'reducers';
-import { Home } from 'components/pages/homePage';
+import Home from 'components/pages/homePage';
 import './style.css';
 
 const store = createStore(reducers, applyMiddleware(logger));
