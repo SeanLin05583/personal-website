@@ -6,7 +6,7 @@ import Banner from './Banner';
 import Header from './Header';
 import Intro from './Intro';
 import Footer from './Footer';
-import { breakPointActions } from 'actions';
+import { breakPointActions, langActions } from 'actions';
 import { smoothScroll, getIntlMessage } from 'utils';
 import breakpoint from 'configs/breakpoint';
 
@@ -38,6 +38,7 @@ class Home extends React.Component {
       new CanvasNest(this.introDomRef, config);
     }
 
+    this.props.dispatch(langActions.initialLang());
     this.setBreakPoint();
     window.addEventListener('scroll', this.setHeaderFixed);
     window.addEventListener('resize', this.setBreakPoint);
