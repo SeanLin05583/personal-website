@@ -91,8 +91,8 @@
   background-color: #687175;
 
   &:first-child {
-    width: 1em;
-    height: 1em;
+    width: 1.2em;
+    height: 1.2em;
     border-radius: 50%;
   }
 
@@ -103,8 +103,8 @@
 
   @mixin isMobile {
     &:first-child {
-      width: .7em;
-      height: .7em;
+      width: 1em;
+      height: 1em;
     }
 
     &:nth-child(2) {

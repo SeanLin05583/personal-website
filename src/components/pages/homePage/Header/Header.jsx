@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { NavButton } from 'components/commons';
+import React, { PureComponent, Fragment } from 'react';
+import { NavButton, LangSelector } from 'components/common';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
@@ -43,17 +43,31 @@ export default class Header extends PureComponent {
     return (
       <header className={cx('header-container', isHeaderFixed && 'fixed')}>
         <div className={cx('header', isMenuOpen && 'open')}>
-          <h1 className={cx('title')}>Sean Lin's profile</h1>
+          <h1 className={cx('header-title')}>Sean Lin's profile</h1>
           {!isMobile &&
-            <div className={cx('header-web-nav')}>
+            <div>
+              <div className={cx('header-lang-selector-container')}>
+                <LangSelector isShowPadding={false} />
+              </div>
               {blockList.map(blockName =>
-                <div key={blockName} onClick={onScrollToBlock(blockName)}>
-                  <span>{blockName}</span>
+                <div
+                  key={blockName}
+                  className={cx('header-web-nav-item')}
+                  onClick={onScrollToBlock(blockName)}
+                >
+                  <span className={cx('header-web-nav-block-name')}>{blockName}</span>
                 </div>
               )}
             </div>
           }
-          {isMobile && <NavButton isOpen={isMenuOpen} onClick={this.handleNavClick} />}
+          {isMobile &&
+            <div className={cx('header-mobile-menu-container')}>
+              <div className={cx('header-mobile-lang-selector-container')}>
+                <LangSelector isShowPadding={false} />
+              </div>
+              <NavButton isOpen={isMenuOpen} onClick={this.handleNavClick} />
+            </div>
+          }
         </div>
         <nav className={cx('menu', isMenuOpen && 'open')}>
           <ul>

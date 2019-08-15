@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { IntlProvider } from 'react-intl';
 import CanvasNest from 'canvas-nest.js';
 import Banner from './Banner';
 import Header from './Header';
 import Intro from './Intro';
 import Footer from './Footer';
 import { breakPointActions } from 'actions';
-import { smoothScroll } from 'utils';
+import { smoothScroll, getIntlMessage } from 'utils';
 import breakpoint from 'configs/breakpoint';
 
 const config = {
@@ -84,26 +85,32 @@ class Home extends React.Component {
 
   render() {
     const { isHeaderFixed } = this.state;
-    const { isMobile } = this.props.breakPointState;
+    const {
+      breakPointState: { isMobile },
+      language,
+    } = this.props;
+
     return (
-      <div style={{ scrollBehavior: 'smooth' }}>
-        <Banner
-          ref={this.bannerRef}
-          onScrollToBlock={this.handleScrollToBlock}
-          blockList={blockList}
-        />
-        <Header
-          isHeaderFixed={isHeaderFixed}
-          isMobile={isMobile}
-          onScrollToBlock={this.handleScrollToBlock}
-          blockList={blockList}
-        />
-        <Intro
-          domRef={ref => this.introDomRef = ref}
-          ref={ref => this.introRef = ref}
-        />
-        <Footer />
-      </div>
+      <IntlProvider locale={language} messages={getIntlMessage(language)} key={language}>
+        <div style={{ scrollBehavior: 'smooth' }}>
+          <Banner
+            ref={this.bannerRef}
+            onScrollToBlock={this.handleScrollToBlock}
+            blockList={blockList}
+          />
+          <Header
+            isHeaderFixed={isHeaderFixed}
+            isMobile={isMobile}
+            onScrollToBlock={this.handleScrollToBlock}
+            blockList={blockList}
+          />
+          <Intro
+            domRef={ref => this.introDomRef = ref}
+            ref={ref => this.introRef = ref}
+          />
+          <Footer />
+        </div>
+      </IntlProvider>
     );
   }
 }
@@ -111,5 +118,6 @@ class Home extends React.Component {
 export default connect(
   state => ({
     breakPointState: state.breakPoint,
+    language: state.language,
   }),
 )(Home);

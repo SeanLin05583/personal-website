@@ -1,4 +1,5 @@
 import React from 'react';
+import { LangSelector } from 'components/common';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
@@ -26,6 +27,9 @@ export default class Banner extends React.Component {
               <li key={blockName} onClick={onScrollToBlock(blockName)}>{blockName}</li>
             )}
           </ul>
+        </div>
+        <div className={cx('banner-lang-selector')}>
+          <LangSelector />
         </div>
       </div>
     );
