@@ -47,3 +47,37 @@
   margin: 0;
   color: #1C1C1C;
 }
+
+.lang-container {
+  margin-top: 5px;
+}
+
+.lang {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 3px;
+  color: #1C1C1C;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    color: #000000;
+    background-color: #EEEEEE;
+  }
+
+  &.is-selected {
+    pointer-events: none;
+  }
+}
+
+.lang-label {
+  position: relative;
+}
+
+.lang-select-icon {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translate(-10px, -50%);
+}

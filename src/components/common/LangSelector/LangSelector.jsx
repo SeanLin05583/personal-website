@@ -36,7 +36,7 @@ class LangSelector extends PureComponent {
 
     return (
       <div className={cx('lang-selector', { 'is-show-padding': isShowPadding })} onClick={this.handleLangMenuOpen}>
-        <i className="fas fa-globe" />
+        <i className='fas fa-globe' />
         <span className={cx('lang-string')}>
           {getLangAbbreviation(language)}
         </span>
@@ -46,13 +46,22 @@ class LangSelector extends PureComponent {
               <div className={cx('lang-menu-container')}>
                 <p className={cx('lang-menu-title')}>選擇語言</p>
                 <div className={cx('lang-container')}>
-                  {langList.map(lang =>
-                    <div
-                      key={lang.key}
-                      onClick={this.handleLangSelect(lang.key)}
-                    >
-                      {lang.text}
-                    </div>
+                  {langList.map(lang => {
+                    const isSelect = (lang.key === language);
+                    return (
+                      <div
+                        key={lang.key}
+                        onClick={this.handleLangSelect(lang.key)}
+                        className={cx('lang', { 'is-selected': isSelect })}
+                      >
+                        <span className={cx('lang-label')}>
+                          {isSelect && <i className={cx('fas fa-globe', 'lang-select-icon')} />}
+                          {lang.text}
+                        </span>
+                      </div>
+                    );
+                  }
+
                   )}
                 </div>
               </div>
