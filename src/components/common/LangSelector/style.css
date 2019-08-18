@@ -35,10 +35,14 @@
 }
 
 .lang-menu-container {
-  min-width: 300px;
+  max-width: 300px;
+  width: 95%;
   background-color: #FFFFFF;
   border-radius: 3px;
   box-shadow: 1px 1px 2px 0px #FFFFFF;
+}
+
+.lang-menu {
   padding: 15px;
 }
 
@@ -46,6 +50,10 @@
   font-size: 18px;
   margin: 0;
   color: #1C1C1C;
+
+  @mixin isMobile {
+    font-size: 16px;
+  }
 }
 
 .lang-container {
@@ -68,6 +76,10 @@
 
   &.is-selected {
     pointer-events: none;
+  }
+
+  @mixin isMobile {
+    font-size: 16px;
   }
 }
 

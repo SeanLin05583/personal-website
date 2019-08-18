@@ -44,25 +44,27 @@ class LangSelector extends PureComponent {
           <div className={cx('modal-container')}>
             <ClickOutside onClick={this.handleLangMenuClose}>
               <div className={cx('lang-menu-container')}>
-                <p className={cx('lang-menu-title')}>選擇語言</p>
-                <div className={cx('lang-container')}>
-                  {langList.map(lang => {
-                    const isSelect = (lang.key === language);
-                    return (
-                      <div
-                        key={lang.key}
-                        onClick={this.handleLangSelect(lang.key)}
-                        className={cx('lang', { 'is-selected': isSelect })}
-                      >
-                        <span className={cx('lang-label')}>
-                          {isSelect && <i className={cx('fas fa-globe', 'lang-select-icon')} />}
-                          {lang.text}
-                        </span>
-                      </div>
-                    );
-                  }
+                <div className={cx('lang-menu')}>
+                  <p className={cx('lang-menu-title')}>選擇語言</p>
+                  <div className={cx('lang-container')}>
+                    {langList.map(lang => {
+                      const isSelect = (lang.key === language);
+                      return (
+                        <div
+                          key={lang.key}
+                          onClick={this.handleLangSelect(lang.key)}
+                          className={cx('lang', { 'is-selected': isSelect })}
+                        >
+                          <span className={cx('lang-label')}>
+                            {isSelect && <i className={cx('fas fa-globe', 'lang-select-icon')} />}
+                            {lang.text}
+                          </span>
+                        </div>
+                      );
+                    }
 
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
             </ClickOutside>
