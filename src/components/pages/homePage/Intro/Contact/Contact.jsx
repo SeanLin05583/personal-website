@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
@@ -9,10 +10,12 @@ export default class Skills extends PureComponent {
     const { domRef } = this.props;
     return (
       <div ref={domRef} className={cx('contact-container')}>
-        <h2 className={cx('contact-container-title')}>Contact Me</h2>
+        <h2 className={cx('contact-container-title')}>
+          <FormattedMessage id="contact.title" />
+        </h2>
         <div>
           <div className={cx('contact-my-name')}>
-            TZU HSUAN LIN
+            <FormattedMessage id="contact.name" />
           </div>
           <div className={cx('contact-method')}>
             <span className={cx('contact-method-title')}>

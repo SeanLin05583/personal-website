@@ -1,4 +1,5 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { NavButton, LangSelector } from 'components/common';
 import classNames from 'classnames/bind';
 import style from './style.css';
@@ -39,23 +40,27 @@ export default class Header extends PureComponent {
 
   render() {
     const { isMenuOpen } = this.state;
-    const { isHeaderFixed, isMobile, onScrollToBlock, blockList } = this.props;
+    const { isHeaderFixed, isMobile, onScrollToBlock, blockTitleList } = this.props;
     return (
       <header className={cx('header-container', isHeaderFixed && 'fixed')}>
         <div className={cx('header', isMenuOpen && 'open')}>
-          <h1 className={cx('header-title')}>Sean Lin's profile</h1>
+          <h1 className={cx('header-title')}>
+            <FormattedMessage id="profile.title" />
+          </h1>
           {!isMobile &&
             <div>
               <div className={cx('header-lang-selector-container')}>
                 <LangSelector isShowPadding={false} />
               </div>
-              {blockList.map(blockName =>
+              {blockTitleList.map(blockObj =>
                 <div
-                  key={blockName}
+                  key={blockObj.key}
                   className={cx('header-web-nav-item')}
-                  onClick={onScrollToBlock(blockName)}
+                  onClick={onScrollToBlock(blockObj.key)}
                 >
-                  <span className={cx('header-web-nav-block-name')}>{blockName}</span>
+                  <span className={cx('header-web-nav-block-name')}>
+                    <FormattedMessage id={blockObj.intlId} />
+                  </span>
                 </div>
               )}
             </div>
@@ -71,8 +76,10 @@ export default class Header extends PureComponent {
         </div>
         <nav className={cx('menu', isMenuOpen && 'open')}>
           <ul>
-            {blockList.map(blockName =>
-              <li key={blockName} onClick={this.handleMenuItemClick(blockName)}>{blockName}</li>
+            {blockTitleList.map(blockObj =>
+              <li key={blockObj.key} onClick={this.handleMenuItemClick(blockObj.key)}>
+                <FormattedMessage id={blockObj.intlId} />
+              </li>
             )}
           </ul>
         </nav>

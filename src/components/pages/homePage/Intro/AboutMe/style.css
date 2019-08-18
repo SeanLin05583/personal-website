@@ -25,6 +25,7 @@
 
 .aboutme-inner {
   padding: 0 20px;
+  margin-left: 20px;
 
   @mixin isPc {
     padding: 0;
@@ -33,5 +34,4 @@
 
 .aboutme-intro {
   display: list-item;
-  list-style-position: inside;
 }

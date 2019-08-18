@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { LangSelector } from 'components/common';
 import classNames from 'classnames/bind';
 import style from './style.css';
@@ -14,17 +15,21 @@ export default class Banner extends React.Component {
   }
 
   render() {
-    const { onScrollToBlock, blockList } = this.props;
+    const { onScrollToBlock, blockTitleList } = this.props;
     return (
       <div className={cx('banner-container')} ref={ref => this.bannerContainer = ref}>
         <img className={cx('banner-img-web')} src={require('../../../../assets/img/banner_web.png')} />
         <img className={cx('banner-img-mobile')} src={require('../../../../assets/img/banner_mobile.png')} />
         <div className={cx('banner-filter')} />
         <div className={cx('banner-title-container')}>
-          <h1 className={cx('banner-title')}>Sean Lin's profile</h1>
+          <h1 className={cx('banner-title')}>
+            <FormattedMessage id="profile.title" />
+          </h1>
           <ul className={cx('banner-menu')} ref={ref => this.menuContainer = ref}>
-            {blockList.map(blockName =>
-              <li key={blockName} onClick={onScrollToBlock(blockName)}>{blockName}</li>
+            {blockTitleList.map(blockObj =>
+              <li key={blockObj.key} onClick={onScrollToBlock(blockObj.key)}>
+                <FormattedMessage id={blockObj.intlId} />
+              </li>
             )}
           </ul>
         </div>

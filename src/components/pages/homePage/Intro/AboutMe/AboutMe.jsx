@@ -1,17 +1,18 @@
 import React, { PureComponent } from 'react';
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
 const cx = classNames.bind(style);
-const introList = [
-  '兩年以上 React.js 框架以及工作流程經驗',
-  '熟悉前端開發工具，Babel、webpack、NPM...等',
-  '熟悉版本控制工具(Git)',
-  '善於團隊合作',
-  '良好的時間管理',
-  '協助 PM 將業務需求轉化爲最佳的產品解決方案',
-  '與 UI / UX 設計師討論最佳使用者體驗',
-  '了解跨瀏覽器兼容性',
+const introKeyList = [
+  'about.me.list.react',
+  'about.me.list.webpack',
+  'about.me.list.get',
+  'about.me.list.team.player',
+  'about.me.list.time.manage',
+  'about.me.list.product',
+  'about.me.list.ui.ix',
+  'about.me.list.cross.browser',
 ];
 
 export default class AboutMe extends PureComponent {
@@ -20,11 +21,15 @@ export default class AboutMe extends PureComponent {
 
     return (
       <div ref={domRef} className={cx('aboutme-wrapper')}>
-        <h2 className={cx('aboutme-container-title')}>About Me</h2>
+        <h2 className={cx('aboutme-container-title')}>
+          <FormattedMessage id="about.me.title" />
+        </h2>
         <div className={cx('aboutme-container')}>
           <div className={cx('aboutme-inner')}>
-            {introList.map((intro, index) =>
-              <p key={index} className={cx('aboutme-intro')}>{intro}</p>
+            {introKeyList.map((introKey, index) =>
+              <p key={index} className={cx('aboutme-intro')}>
+                <FormattedMessage id={introKey} />
+              </p>
             )}
           </div>
         </div>

@@ -16,11 +16,23 @@ const config = {
   zIndex: -100,
 };
 
-const blockList = [
-  'AboutMe',
-  'Skills',
-  'Experiences',
-  'Contact',
+const blockTitleList = [
+  {
+    key: 'AboutMe',
+    intlId: 'about.me.title',
+  },
+  {
+    key: 'Skills',
+    intlId: 'skill.title',
+  },
+  {
+    key: 'Experiences',
+    intlId: 'experience.title',
+  },
+  {
+    key: 'Contact',
+    intlId: 'contact.title',
+  },
 ];
 
 class Home extends React.Component {
@@ -81,7 +93,7 @@ class Home extends React.Component {
 
   handleScrollToBlock = (targetBlock) => () => {
     const targetY = this.introRef.getTargetBlockTop(targetBlock) - 70;
-    smoothScroll(/Trident/.test(navigator.userAgent) ? targetY : (targetY + this.introDomRef.offsetTop));
+    smoothScroll(targetY);
   }
 
   render() {
@@ -92,18 +104,18 @@ class Home extends React.Component {
     } = this.props;
 
     return (
-      <IntlProvider locale={language} messages={getIntlMessage(language)} key={language}>
+      <IntlProvider key={language} locale={language} messages={getIntlMessage(language)} >
         <div style={{ scrollBehavior: 'smooth' }}>
           <Banner
             ref={this.bannerRef}
             onScrollToBlock={this.handleScrollToBlock}
-            blockList={blockList}
+            blockTitleList={blockTitleList}
           />
           <Header
             isHeaderFixed={isHeaderFixed}
             isMobile={isMobile}
             onScrollToBlock={this.handleScrollToBlock}
-            blockList={blockList}
+            blockTitleList={blockTitleList}
           />
           <Intro
             domRef={ref => this.introDomRef = ref}
