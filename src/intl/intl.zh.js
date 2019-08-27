@@ -1,4 +1,5 @@
 export default {
+  "language.selector.title": "選擇語言",
   "profile.title": "Sean Lin's profile",
   "about.me.title": "AboutMe",
   "about.me.list.react": "兩年以上 React.js 框架以及工作流程經驗",

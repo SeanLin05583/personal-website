@@ -1,4 +1,5 @@
 export default {
+  "language.selector.title": "Language",
   "profile.title": "Sean Lin's profile",
   "about.me.title": "AboutMe",
   "about.me.list.react": "2+ years experience with popular React.js framework and workflows (Redux)",

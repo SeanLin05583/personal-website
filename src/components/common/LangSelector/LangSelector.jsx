@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import { langList, getLangAbbreviation } from 'utils';
 import { langActions } from 'actions';
 import { ClickOutside } from 'components/common';
@@ -19,11 +20,17 @@ class LangSelector extends PureComponent {
   }
 
   handleLangMenuOpen = () => {
+    document.documentElement.classList.add('lock-scrolling');
     this.setState({ isLangMenuOpen: true });
   }
 
   handleLangMenuClose = () => {
+    document.documentElement.classList.remove('lock-scrolling');
     this.setState({ isLangMenuOpen: false });
+  }
+  
+  componentWillUnmount() {
+    document.documentElement.classList.remove('lock-scrolling');
   }
 
   handleLangSelect = (langKey) => () => {
@@ -45,7 +52,9 @@ class LangSelector extends PureComponent {
             <ClickOutside onClick={this.handleLangMenuClose}>
               <div className={cx('lang-menu-container')}>
                 <div className={cx('lang-menu')}>
-                  <p className={cx('lang-menu-title')}>選擇語言</p>
+                  <p className={cx('lang-menu-title')}>
+                    <FormattedMessage id="language.selector.title" />
+                  </p>
                   <div className={cx('lang-container')}>
                     {langList.map(lang => {
                       const isSelect = (lang.key === language);

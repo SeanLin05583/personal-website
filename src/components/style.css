@@ -3,3 +3,10 @@ body {
   font-family: monospace, Microsoft JhengHei;
   min-width: 320px;
 }
+
+:global(html.lock-scrolling) {
+  position: fixed;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
