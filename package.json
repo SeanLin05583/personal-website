@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --mode development",
     "build": "MODE=publish webpack --mode production",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -m 'auto commit [ci skip]' -d dist"
   },
   "keywords": [],
   "author": "",

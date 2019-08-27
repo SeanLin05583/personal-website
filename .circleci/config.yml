@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.15.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: package-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install Package
+          command: npm install
+      - save_cache:
+          key: package-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Build
+          command: npm run build
+      - run:
+          name: Set Git Info
+          command: git config --global user.email "seanlin05583@gmail.com" && git config --global user.name "Sean Lin"
+      - run:
+          name: Deploy
+          command: npm run deploy
