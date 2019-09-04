@@ -32,7 +32,7 @@ export default function smoothScroll(targetY, ref) {
   let scrollCounter = 0;
   const scrollInterval = setInterval(() => {
     let scrollToY = ref ? targetElement.scrollTop : window.pageYOffset;
-    if (scrollToY === windowScrollableHeight && scrollCounter !== 0) {
+    if ((scrollToY === windowScrollableHeight || scrollToY === 0) && scrollCounter !== 0) {
       // 已滑動到底部則停止滑動
       clearInterval(scrollInterval);
       return;

@@ -10,18 +10,25 @@ const cx = classNames.bind(style);
 
 export default class Intro extends PureComponent {
   getTargetBlockTop = (targetBlock) => {
+    let targetDOM = null;
     switch (targetBlock) {
       case 'AboutMe':
-        return this.abountMeRef.offsetTop;
+        targetDOM = this.abountMeRef;
+        break;
       case 'Skills':
-        return this.skillsRef.offsetTop;
+        targetDOM = this.skillsRef;
+        break;
       case 'Experiences':
-        return this.experiencesRef.offsetTop;
+        targetDOM = this.experiencesRef;
+        break;
       case 'Contact':
-        return this.contactRef.offsetTop;
+        targetDOM = this.contactRef;
+        break;
       default:
         return 0;
     }
+
+    return targetDOM.getBoundingClientRect().y + window.pageYOffset;
   }
 
   render() {
