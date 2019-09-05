@@ -5,8 +5,5 @@ body {
 }
 
 :global(html.lock-scrolling) {
-  position: fixed;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
 }
