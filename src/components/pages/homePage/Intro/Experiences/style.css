@@ -88,27 +88,25 @@
 }
   
 .exp-progress-bar span {
-  background-color: #687175;
+  background-color: #A6AFB3;
 
   &:first-child {
-    width: 1.2em;
-    height: 1.2em;
+    width: 1em;
+    height: 1em;
+    margin-top: .1em;
     border-radius: 50%;
   }
 
   &:nth-child(2) {
     flex: 1;
-    width: 3px;
+    width: 2px;
+    margin-bottom: 8px;
   }
 
   @mixin isMobile {
     &:first-child {
-      width: 1em;
-      height: 1em;
-    }
-
-    &:nth-child(2) {
-      width: 2px;
+      width: .8em;
+      height: .8em;
     }
   }
 }
@@ -126,9 +124,9 @@
 
 .exp-title-divider {
   flex: 1;
-  height: 1px;
+  height: 2px;
   margin: 0 10px;
-  background-color: #687175;
+  background-color: #A6AFB3;
 }
 
 .exp-title-time {

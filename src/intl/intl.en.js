@@ -13,7 +13,7 @@ export default {
   "skill.title": "Skills",
   "experience.title": "Experiences",
   "experience.accupass.name": "Accupass 活動通",
-  "experience.accupass.duration": "June 2018 - Now",
+  "experience.accupass.duration": "Jun 2018 - Now",
   "experience.accupass.job.title": "Front-end Developer",
   "experience.accupass.job.website": "Mainly responsible for front-end development of the official website of Accupass, the largest event platform in Asia, cooperate with 3 back-end developers and 2 others front-end developers in RD team, build a responsive website with good user experience.",
   "experience.accupass.job.support": "Support special project from other department, develop including single-page campaign, landing page or theme event website.",

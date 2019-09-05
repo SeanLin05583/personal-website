@@ -30,7 +30,7 @@ export default class Skills extends PureComponent {
               phone:
             </span>
             <span className={cx('contact-method-content')}>
-              +886 981-676-912
+              +886 981-676-912 (18:30 ~ 22:30)
             </span>
           </div>
         </div>
