@@ -48,10 +48,7 @@ export default class Header extends PureComponent {
             <FormattedMessage id="profile.title" />
           </h1>
           {!isMobile &&
-            <div>
-              <div className={cx('header-lang-selector-container')}>
-                <LangSelector isShowPadding={false} />
-              </div>
+            <div className={cx('header-web-nav-container')}>
               {blockTitleList.map(blockObj =>
                 <div
                   key={blockObj.key}
@@ -63,6 +60,9 @@ export default class Header extends PureComponent {
                   </span>
                 </div>
               )}
+              <div className={cx('header-lang-selector-container')}>
+                <LangSelector isShowPadding={false} />
+              </div>
             </div>
           }
           {isMobile &&

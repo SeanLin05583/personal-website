@@ -38,11 +38,12 @@
 .banner-title-container {
   position: absolute;
   top: 0;
+  bottom: 0;
   right: 0;
-  width: 50%;
   display: flex;
   flex-direction: column;
-  margin: 5% 20px 20px;
+  justify-content: center;
+  width: 50%;
 }
 
 .banner-title {
@@ -69,39 +70,13 @@
   }
 }
 
-.banner-menu {
+.banner-menu-container {
   display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  letter-spacing: 1px;
-  font-size: 20px;
-
-  @mixin isPad {
-    font-size: 16px;
-  }
-
-  @mixin isMobile {
-    display: none;
-  }
-
-  li {
-    padding: 5px 15px;
-    cursor: pointer;
-    transition: all .2s;
-
-    &:hover {
-      opacity: .7;
-    }
-  }
-}
-
-.banner-lang-selector {
-  display: block;
   position: absolute;
   top: 0;
   right: 5px;
-  font-size: 18px;
+  font-size: 20px;
+  padding: 5px 0;
 
   @mixin isPad {
     font-size: 16px;
@@ -109,5 +84,30 @@
   
   @mixin isMobile {
     display: none;
+  }
+}
+
+.banner-menu {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 1px;
+
+  @mixin isMobile {
+    display: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+      opacity: .7;
+    }
   }
 }

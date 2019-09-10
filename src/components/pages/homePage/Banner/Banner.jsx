@@ -10,8 +10,8 @@ export default class Banner extends React.Component {
     return this.bannerContainer.getBoundingClientRect().height;
   }
 
-  getWebMenuBottomPosition = () => {
-    return this.menuContainer.getBoundingClientRect().bottom;
+  getBannerBottom = () => {
+    return this.bannerContainer.getBoundingClientRect().bottom;
   }
 
   render() {
@@ -25,15 +25,15 @@ export default class Banner extends React.Component {
           <h1 className={cx('banner-title')}>
             <FormattedMessage id="profile.title" />
           </h1>
-          <ul className={cx('banner-menu')} ref={ref => this.menuContainer = ref}>
+        </div>
+        <div className={cx('banner-menu-container')}>
+          <ul className={cx('banner-menu')}>
             {blockTitleList.map(blockObj =>
               <li key={blockObj.key} onClick={onScrollToBlock(blockObj.key)}>
                 <FormattedMessage id={blockObj.intlId} />
               </li>
             )}
           </ul>
-        </div>
-        <div className={cx('banner-lang-selector')}>
           <LangSelector />
         </div>
       </div>

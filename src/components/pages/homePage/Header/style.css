@@ -97,6 +97,11 @@
   }
 }
 
+.header-web-nav-container {
+  display: flex;
+  align-items: center;
+}
+
 .header-web-nav-item {
   display: inline-block;
   position: relative;
@@ -133,15 +138,7 @@
   padding: 0;
 
   div {
-    padding: 0 10px;
-
-    &::after {
-      content: '|';
-      position: absolute;
-      right: -10px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+    padding-left: 15px;
   }
 }
 

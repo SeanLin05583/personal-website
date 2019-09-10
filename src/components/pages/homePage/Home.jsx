@@ -65,7 +65,7 @@ class Home extends React.Component {
     if (isMobile) {
       this.setState({ isHeaderFixed: this.bannerRef.current.getBannerHeight() < window.scrollY });
     } else {
-      this.setState({ isHeaderFixed: this.bannerRef.current.getWebMenuBottomPosition() < 0 });
+      this.setState({ isHeaderFixed: this.bannerRef.current.getBannerBottom() < 0 });
     }
   }
 

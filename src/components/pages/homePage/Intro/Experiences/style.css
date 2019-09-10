@@ -1,7 +1,11 @@
 .exp-container {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 60px;
+
+  @mixin isPc {
+    margin-top: 100px;
+  }
 }
 
 .exp-container-title {
