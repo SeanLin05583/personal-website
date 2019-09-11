@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { IntlProvider } from 'react-intl';
-import CanvasNest from 'canvas-nest.js';
 import Banner from './Banner';
 import Header from './Header';
 import Intro from './Intro';
@@ -9,12 +8,6 @@ import Footer from './Footer';
 import { breakPointActions, langActions } from 'actions';
 import { smoothScroll, getIntlMessage } from 'utils';
 import breakpoint from 'configs/breakpoint';
-
-const config = {
-  color: '25,172,255',
-  count: 250,
-  zIndex: -100,
-};
 
 const blockTitleList = [
   {
@@ -45,11 +38,6 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    // not IE browser
-    if (!/Trident/.test(navigator.userAgent)) {
-      new CanvasNest(this.introDomRef, config);
-    }
-
     this.props.dispatch(langActions.initialLang());
     this.setBreakPoint();
     window.addEventListener('scroll', this.setHeaderFixed);
@@ -117,10 +105,7 @@ class Home extends React.Component {
             onScrollToBlock={this.handleScrollToBlock}
             blockTitleList={blockTitleList}
           />
-          <Intro
-            domRef={ref => this.introDomRef = ref}
-            ref={ref => this.introRef = ref}
-          />
+          <Intro ref={ref => this.introRef = ref} />
           <Footer />
         </div>
       </IntlProvider>
