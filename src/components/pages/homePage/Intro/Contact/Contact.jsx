@@ -30,17 +30,18 @@ export default class Skills extends PureComponent {
               phone:
             </span>
             <span className={cx('contact-method-content')}>
-              +886 981-676-912 (18:30 ~ 22:30)
+              <span>+886 981-676-912</span>
+              <span> (18:30 ~ 23:00)</span>
             </span>
           </div>
-        </div>
-        <div className={cx('contact-social-media-container')}>
-          <a href="https://www.linkedin.com/in/sean-lin-06b2b4155/" target="_blank">
-            <i className={cx('fab', 'fa-linkedin', 'contact-btn', 'contact-linkin')} />
-          </a>
-          <a href="https://github.com/SeanLin05583" target="_blank">
-            <i className={cx('fab', 'fa-github', 'contact-btn', 'contact-github')} />
-          </a>
+          <div className={cx('contact-social-media-container')}>
+            <a href="https://www.linkedin.com/in/sean-lin-06b2b4155/" target="_blank">
+              <i className={cx('fab', 'fa-linkedin', 'contact-btn', 'contact-linkin')} />
+            </a>
+            <a href="https://github.com/SeanLin05583" target="_blank">
+              <i className={cx('fab', 'fa-github', 'contact-btn', 'contact-github')} />
+            </a>
+          </div>
         </div>
       </div>
     )
