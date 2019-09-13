@@ -9,12 +9,12 @@
 }
 
 .exp-container-title {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 26px;
+  font-weight: 600;
   text-align: center;
 
   @mixin isPad {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   @mixin isMobile {
@@ -26,6 +26,7 @@
   display: flex;
   font-size: 24px;
   padding: 0 20px;
+  margin-top: 20px;
 
   @mixin isMobile {
     padding: 0 20px 0 10px;
@@ -172,6 +173,14 @@
   margin: 10px 0;
   font-size: 22px;
   text-align: right;
+  color: #10567B;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .2s;
+
+  &:hover {
+    color: #064162;
+  }
 
   @mixin isPad {
     font-size: 20x;
@@ -214,6 +223,7 @@
   word-break: break-all;
   word-wrap: break-word;
   font-size: 16px;
+  line-height: 20px;
 }
 
 .exp-pc-logo-container {

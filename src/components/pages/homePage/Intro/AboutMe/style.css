@@ -5,12 +5,12 @@
 }
 
 .aboutme-container-title {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 26px;
+  font-weight: 600;
   text-align: center;
 
   @mixin isPad {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   @mixin isMobile {
@@ -18,20 +18,70 @@
   }
 }
 
-.aboutme-container {
+.aboutme {
   display: flex;
   justify-content: center;
 }
 
 .aboutme-inner {
-  padding: 0 20px;
-  margin-left: 20px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 40px;
+  margin-top: 20px;
 
-  @mixin isPc {
+  @mixin isMobile {
+    flex-direction: column;
     padding: 0;
+    align-items: center;
   }
 }
 
-.aboutme-intro {
-  display: list-item;
+.personal-img {
+  border-radius: 50%;
+  width: 190px;
+  height: 190px;
+  box-shadow: 0px 0px 15px 1px #CCCCCC;
+
+  @mixin isPad {
+    width: 150px;
+    height: 150px;
+  }
+
+  @mixin isMobile {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.aboutme-description-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin-left: 80px;
+
+  @mixin isMobile {
+    font-size: 16px;
+    margin-top: 30px;
+    margin-left: 0px;
+    padding: 0 20px;
+  }
+}
+
+.abount-me-name {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 18px;
+}
+
+.aboutme-description {
+  margin-bottom: 15px;
+}
+
+.aboutme-description-title {
+  color: #757575;
+}
+
+.aboutme-description-content {
+  margin-left: 20px;
 }

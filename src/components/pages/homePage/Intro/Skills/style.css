@@ -9,12 +9,12 @@
 }
 
 .skills-container-title {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 26px;
+  font-weight: 600;
   text-align: center;
 
   @mixin isPad {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   @mixin isMobile {
@@ -27,6 +27,7 @@
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 40px;
 
   @mixin isPc {
     flex-direction: row;
@@ -44,6 +45,7 @@
     flex-direction: column;
     justify-content: center;
     width: 33%;
+    margin-top: 20px;
   }
 }
 
@@ -52,13 +54,12 @@
   max-height: 70px;
 
   @mixin isPad {
-    width: 100px;
+    width: 90px;
     max-height: 100px
   }
 
   @mixin isPc {
-    width: 50%;
-    height: 100%;
+    width: 90px;
     max-height: none;
   }
 }
@@ -113,4 +114,26 @@
   color: #FFFA00;
   margin-left: 2px;
   text-shadow: 1px 1px 3px #000000, 1px 1px 2px #000000;
+}
+
+.skill-intro-container {
+  display: flex;
+  justify-content: center;
+}
+
+.skill-intro-inner {
+  padding: 0 20px;
+  margin-left: 20px;
+
+  @mixin isPc {
+    padding: 0;
+  }
+}
+
+.skill-intro {
+  margin-bottom: 12px;
+
+  span {
+    line-height: 20px;
+  }
 }

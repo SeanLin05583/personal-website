@@ -3,12 +3,12 @@ import classNames from 'classnames/bind';
 import style from './style.css';
 import { FormattedMessage } from 'react-intl';
 
-const cx = classNames.bind(style);
+import imgAccupass from 'assets/img/logo_accupass.svg';
+import imgAccupasMobile from 'assets/img/logo_accupass_mobile.png';
+import imgLeo from 'assets/img/logo_leo.png';
+import imgLeoMobile from 'assets/img/logo_leo_mobile.png';
 
-const imgAccupass = require('../../../../../assets/img/logo-accupass.svg');
-const imgAccupasMobile = require('../../../../../assets/img/logo-accupass-mobile.png');
-const imgLeo = require('../../../../../assets/img/logo-leo.png');
-const imgLeoMobile = require('../../../../../assets/img/logo-leo-mobile.png');
+const cx = classNames.bind(style);
 
 const expList = [
   {
@@ -25,6 +25,7 @@ const expList = [
       'experience.accupass.job.refactor',
       'experience.accupass.job.ux',
     ],
+    link: 'https://www.accupass.com',
   },
   {
     duration: 'experience.leo.duration',
@@ -38,6 +39,7 @@ const expList = [
       'experience.leo.job.maintain',
       'experience.leo.job.develop',
     ],
+    link: 'https://www.leosys.com',
   },
 ];
 
@@ -63,9 +65,9 @@ export default class Experiences extends PureComponent {
           <div className={cx('exp-sub-title-container')}>
             <img className={cx('exp-logo-mobile', exp.imgStyle)} src={exp.imgMobile || exp.img} />
             <div className={cx('exp-sub-title')}>
-              <p className={cx('exp-company-title')}>
+              <a className={cx('exp-company-title')} href={exp.link} target="_blank">
                 <FormattedMessage id={exp.companyTitle} />
-              </p>
+              </a>
               <p className={cx('exp-job-title')}>
                 <FormattedMessage id={exp.jobTitle} />
               </p>

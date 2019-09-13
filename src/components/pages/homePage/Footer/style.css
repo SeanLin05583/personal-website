@@ -9,6 +9,7 @@
   text-align: center;
   color: #FFFFFF;
   font-size: 22px;
+  margin-bottom: 15px;
 
   @mixin isPad {
     font-size: 17px;

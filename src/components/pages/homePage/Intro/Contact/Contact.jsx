@@ -13,7 +13,7 @@ export default class Skills extends PureComponent {
         <h2 className={cx('contact-container-title')}>
           <FormattedMessage id="contact.title" />
         </h2>
-        <div>
+        <div className={cx('contact-inner')}>
           <div className={cx('contact-my-name')}>
             <FormattedMessage id="contact.name" />
           </div>

@@ -3,18 +3,24 @@ import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
-const cx = classNames.bind(style);
-const introKeyList = [
-  'about.me.list.react',
-  'about.me.list.webpack',
-  'about.me.list.get',
-  'about.me.list.team.player',
-  'about.me.list.time.manage',
-  'about.me.list.product',
-  'about.me.list.ui.ix',
-  'about.me.list.cross.browser',
-];
+import PersonalImg from 'assets/img/personal_img.png';
 
+const cx = classNames.bind(style);
+
+const descriptionList = [
+  {
+    titleId: 'about.me.position.title',
+    descriptionId: 'about.me.position.description',
+  },
+  {
+    titleId: 'about.me.education.title',
+    descriptionId: 'about.me.education.description',
+  },
+  {
+    titleId: 'about.me.major.title',
+    descriptionId: 'about.me.major.description',
+  },
+];
 export default class AboutMe extends PureComponent {
   render() {
     const { domRef } = this.props;
@@ -24,13 +30,22 @@ export default class AboutMe extends PureComponent {
         <h2 className={cx('aboutme-container-title')}>
           <FormattedMessage id="about.me.title" />
         </h2>
-        <div className={cx('aboutme-container')}>
+        <div className={cx('aboutme')}>
           <div className={cx('aboutme-inner')}>
-            {introKeyList.map((introKey, index) =>
-              <p key={index} className={cx('aboutme-intro')}>
-                <FormattedMessage id={introKey} />
-              </p>
-            )}
+            <img src={PersonalImg} className={cx('personal-img')} />
+            <div className={cx('aboutme-description-container')}>
+              <p className={cx('abount-me-name')}>Sean Lin</p>
+              {descriptionList.map((obj, index) =>
+                <p key={index} className={cx('aboutme-description')}>
+                  <span className={cx('aboutme-description-title')}>
+                    <FormattedMessage id={obj.titleId} />
+                  </span>
+                  <span className={cx('aboutme-description-content')}>
+                    <FormattedMessage id={obj.descriptionId} />
+                  </span>
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </div>

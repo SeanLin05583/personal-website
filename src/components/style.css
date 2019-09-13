@@ -7,3 +7,8 @@ body {
 :global(html.lock-scrolling) {
   overflow: hidden;
 }
+
+p {
+  margin: 0;
+  padding: 0;
+}
