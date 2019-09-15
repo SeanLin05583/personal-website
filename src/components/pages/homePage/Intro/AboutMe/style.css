@@ -21,6 +21,10 @@
 .aboutme {
   display: flex;
   justify-content: center;
+
+  @mixin isPc {
+    margin-top: 20px;
+  }
 }
 
 .aboutme-inner {

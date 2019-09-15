@@ -66,7 +66,7 @@ export default class Header extends PureComponent {
             </div>
           }
           {isMobile &&
-            <div className={cx('header-mobile-menu-container')}>
+            <div className={cx('header-mobile-left')}>
               <div className={cx('header-mobile-lang-selector-container')}>
                 <LangSelector isShowPadding={false} />
               </div>
@@ -74,7 +74,7 @@ export default class Header extends PureComponent {
             </div>
           }
         </div>
-        <nav className={cx('menu', isMenuOpen && 'open')}>
+        <nav className={cx('header-mobile-menu', isMenuOpen && 'is-open')}>
           <ul>
             {blockTitleList.map(blockObj =>
               <li key={blockObj.key} onClick={this.handleMenuItemClick(blockObj.key)}>

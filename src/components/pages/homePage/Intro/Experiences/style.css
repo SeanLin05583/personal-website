@@ -8,6 +8,10 @@
   }
 }
 
+.exp-inner {
+  margin-top: 20px;
+}
+
 .exp-container-title {
   font-size: 26px;
   font-weight: 600;
@@ -26,7 +30,6 @@
   display: flex;
   font-size: 24px;
   padding: 0 20px;
-  margin-top: 20px;
 
   @mixin isMobile {
     padding: 0 20px 0 10px;
@@ -98,7 +101,6 @@
   &:first-child {
     width: 1em;
     height: 1em;
-    margin-top: .1em;
     border-radius: 50%;
   }
 
@@ -112,6 +114,7 @@
     &:first-child {
       width: .8em;
       height: .8em;
+      margin-top: .1em;
     }
   }
 }
@@ -220,10 +223,8 @@
 .exp-job-description {
   display: list-item;
   margin: 10px 0 10px 30px;
-  word-break: break-all;
-  word-wrap: break-word;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 22px;
 }
 
 .exp-pc-logo-container {

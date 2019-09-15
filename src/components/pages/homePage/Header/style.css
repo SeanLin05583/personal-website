@@ -58,7 +58,7 @@
 
 }
 
-.menu {
+.header-mobile-menu {
   display: inherit;
   position: absolute;
   top: 60px;
@@ -70,7 +70,7 @@
   transform: translateY(-100%);
   transition: all .3s ease-in-out;
 
-  &.open {
+  &.is-open {
     transform: translateY(0%);
   }
 
@@ -142,10 +142,11 @@
   }
 }
 
-.header-mobile-menu-container {
+.header-mobile-left {
   display: flex;
+  align-items: center;
 }
 
 .header-mobile-lang-selector-container {
-  margin-right: 10px;
+  margin-right: 15px;
 }

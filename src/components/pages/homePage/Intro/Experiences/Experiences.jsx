@@ -45,42 +45,45 @@ const expList = [
 
 export default class Experiences extends PureComponent {
   renderExperiences = () => {
-    return expList.map((exp, index) =>
-      <div key={index} className={cx('exp')}>
-        <div className={cx('exp-pc-logo-container')}>
-          <img className={cx(exp.imgStyle)} src={exp.img} />
-        </div>
-        <div className={cx('exp-progress-bar')}>
-          <span />
-          <span />
-          <span />
-        </div>
-        <section className={cx('exp-content-container')}>
-          <div className={cx('exp-title')}>
-            <span className={cx('exp-title-divider')} />
-            <h3 className={cx('exp-title-time')}>
-              <FormattedMessage id={exp.duration} />
-            </h3>
-          </div>
-          <div className={cx('exp-sub-title-container')}>
-            <img className={cx('exp-logo-mobile', exp.imgStyle)} src={exp.imgMobile || exp.img} />
-            <div className={cx('exp-sub-title')}>
-              <a className={cx('exp-company-title')} href={exp.link} target="_blank">
-                <FormattedMessage id={exp.companyTitle} />
-              </a>
-              <p className={cx('exp-job-title')}>
-                <FormattedMessage id={exp.jobTitle} />
-              </p>
+    return (
+      <div className={cx('exp-inner')}>
+        {expList.map((exp, index) =>
+          <div key={index} className={cx('exp')}>
+            <div className={cx('exp-pc-logo-container')}>
+              <img className={cx(exp.imgStyle)} src={exp.img} />
             </div>
+            <div className={cx('exp-progress-bar')}>
+              <span />
+              <span />
+            </div>
+            <section className={cx('exp-content-container')}>
+              <div className={cx('exp-title')}>
+                <span className={cx('exp-title-divider')} />
+                <h3 className={cx('exp-title-time')}>
+                  <FormattedMessage id={exp.duration} />
+                </h3>
+              </div>
+              <div className={cx('exp-sub-title-container')}>
+                <img className={cx('exp-logo-mobile', exp.imgStyle)} src={exp.imgMobile || exp.img} />
+                <div className={cx('exp-sub-title')}>
+                  <a className={cx('exp-company-title')} href={exp.link} target="_blank">
+                    <FormattedMessage id={exp.companyTitle} />
+                  </a>
+                  <p className={cx('exp-job-title')}>
+                    <FormattedMessage id={exp.jobTitle} />
+                  </p>
+                </div>
+              </div>
+              <div className={cx('exp-content')}>
+                {exp.jobDescriptionList.map(descKey =>
+                  <p key={descKey} className={cx('exp-job-description')}>
+                    <FormattedMessage id={descKey} />
+                  </p>
+                )}
+              </div>
+            </section>
           </div>
-          <div className={cx('exp-content')}>
-            {exp.jobDescriptionList.map(descKey =>
-              <p key={descKey} className={cx('exp-job-description')}>
-                <FormattedMessage id={descKey} />
-              </p>
-            )}
-          </div>
-        </section>
+        )}
       </div>
     );
   }

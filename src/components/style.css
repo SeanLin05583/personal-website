@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: monospace, Microsoft JhengHei;
   min-width: 320px;
+  font-size: 14px;
 }
 
 :global(html.lock-scrolling) {
