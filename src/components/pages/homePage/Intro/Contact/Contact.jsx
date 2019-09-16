@@ -19,7 +19,7 @@ export default class Skills extends PureComponent {
           </div>
           <div className={cx('contact-method')}>
             <span className={cx('contact-method-title')}>
-              e-mail:
+              Email：
             </span>
             <span className={cx('contact-method-content')}>
               seanlin05583@gmail.com
@@ -27,7 +27,7 @@ export default class Skills extends PureComponent {
           </div>
           <div className={cx('contact-method')}>
             <span className={cx('contact-method-title')}>
-              phone:
+              Mobile：
             </span>
             <span className={cx('contact-method-content')}>
               <span>+886 981-676-912</span>
