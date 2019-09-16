@@ -6,7 +6,7 @@
   min-width: 320px;
   opacity: 0;
   z-index: 100;
-  transition: all .3s;
+  transition: opacity .2s;
 
   @mixin isMobile {
     position: absolute;
@@ -27,17 +27,16 @@
   display: flex; 
   align-items: center;
   justify-content: space-between;
-  z-index: 100;
   color: #666666;
   background-color: #FFFFFF;
   padding: 20px 15px 20px 20px;
   font-size: 22px;
-  margin-top: -2px;  
-  box-shadow: 0px 2px 2px #EEEEEE;
+  margin-top: -2px;
+  z-index: 200;
+  border-bottom: 1px solid #EEEEEE;
 
-  &.open {   
-    border-bottom: 1px solid #EEEEEE;
-    box-shadow: none;
+  @mixin isMobile {
+    z-index: 300;
   }
 }
 
@@ -53,9 +52,9 @@
   display: inherit;
   position: absolute;
   top: 60px;
+  z-index: 0;
   width: 100%;
   font-size: 16px;
-  z-index: 50;
   background-color: #FFFFFF;
   box-shadow: 0px 2px 2px #EEEEEE;
   transform: translateY(-100%);
@@ -85,6 +84,10 @@
         background-color: #EEEEEE;
       }
     }
+  }
+
+  @mixin isMobile {
+    z-index: 100;
   }
 }
 

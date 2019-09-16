@@ -74,15 +74,17 @@ export default class Header extends PureComponent {
             </div>
           }
         </div>
-        <nav className={cx('header-mobile-menu', isMenuOpen && 'is-open')}>
-          <ul>
-            {blockTitleList.map(blockObj =>
-              <li key={blockObj.key} onClick={this.handleMenuItemClick(blockObj.key)}>
-                <FormattedMessage id={blockObj.intlId} />
-              </li>
-            )}
-          </ul>
-        </nav>
+        {isMobile &&
+          <nav className={cx('header-mobile-menu', isMenuOpen && 'is-open')}>
+            <ul>
+              {blockTitleList.map(blockObj =>
+                <li key={blockObj.key} onClick={this.handleMenuItemClick(blockObj.key)}>
+                  <FormattedMessage id={blockObj.intlId} />
+                </li>
+              )}
+            </ul>
+          </nav>
+        }
       </header>
     )
   }

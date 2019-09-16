@@ -1,7 +1,10 @@
 .banner-container {
   position: relative;
-  z-index: 200;
   background-color: #FFFFFF;
+
+  @mixin isMobile {
+    z-index: 200;
+  }
 }
 
 .banner-filter {
@@ -77,6 +80,7 @@
   right: 5px;
   font-size: 18px;
   padding: 5px 0;
+  z-index: 300;
 
   @mixin isPad {
     font-size: 16px;
