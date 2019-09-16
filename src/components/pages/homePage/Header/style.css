@@ -1,33 +1,24 @@
 .header-container {
-  position: absolute;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   min-width: 320px;
-  display: none;
-  animation-name: header-fade-in;
-  animation-duration: .3s;
-  animation-timing-function: ease-in-out;
+  opacity: 0;
+  z-index: 100;
+  transition: all .3s;
 
   @mixin isMobile {
-    display: block;
+    position: absolute;
+    top: unset;
+    opacity: 1;
   }
 
   &.fixed {
     position: fixed;
     top: 0;
-    display: block;
-    z-index: 100;
-    width: 100%;
-  }
-}
-
-@keyframes header-fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
     opacity: 1;
+    width: 100%;
   }
 }
 

@@ -1,6 +1,6 @@
 .banner-container {
   position: relative;
-  z-index: 100;
+  z-index: 200;
   background-color: #FFFFFF;
 }
 
