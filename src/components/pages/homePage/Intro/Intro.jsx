@@ -42,7 +42,7 @@ export default class Intro extends PureComponent {
         return 0;
     }
 
-    return targetDOM.getBoundingClientRect().y + window.pageYOffset;
+    return targetDOM.getBoundingClientRect().top + window.pageYOffset;
   }
 
   render() {
