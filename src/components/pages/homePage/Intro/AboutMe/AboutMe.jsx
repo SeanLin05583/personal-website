@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef } from 'react';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames/bind';
 import style from './style.css';
@@ -21,34 +21,33 @@ const descriptionList = [
     descriptionId: 'about.me.major.description',
   },
 ];
-export default class AboutMe extends PureComponent {
-  render() {
-    const { domRef } = this.props;
 
-    return (
-      <div ref={domRef} className={cx('aboutme-wrapper')}>
-        <h2 className={cx('aboutme-container-title')}>
-          <FormattedMessage id="about.me.title" />
-        </h2>
-        <div className={cx('aboutme')}>
-          <div className={cx('aboutme-inner')}>
-            <img src={PersonalImg} className={cx('personal-img')} />
-            <div className={cx('aboutme-description-container')}>
-              <p className={cx('abount-me-name')}>Sean Lin</p>
-              {descriptionList.map((obj, index) =>
-                <p key={index} className={cx('aboutme-description')}>
-                  <span className={cx('aboutme-description-title')}>
-                    <FormattedMessage id={obj.titleId} />
-                  </span>
-                  <span className={cx('aboutme-description-content')}>
-                    <FormattedMessage id={obj.descriptionId} />
-                  </span>
-                </p>
-              )}
-            </div>
+const AboutMe = forwardRef((props, ref) => {
+  return (
+    <div ref={ref} className={cx('aboutme-wrapper')}>
+      <h2 className={cx('aboutme-container-title')}>
+        <FormattedMessage id="about.me.title" />
+      </h2>
+      <div className={cx('aboutme')}>
+        <div className={cx('aboutme-inner')}>
+          <img src={PersonalImg} className={cx('personal-img')} />
+          <div className={cx('aboutme-description-container')}>
+            <p className={cx('abount-me-name')}>Sean Lin</p>
+            {descriptionList.map((obj, index) =>
+              <p key={index} className={cx('aboutme-description')}>
+                <span className={cx('aboutme-description-title')}>
+                  <FormattedMessage id={obj.titleId} />
+                </span>
+                <span className={cx('aboutme-description-content')}>
+                  <FormattedMessage id={obj.descriptionId} />
+                </span>
+              </p>
+            )}
           </div>
         </div>
       </div>
-    )
-  }
-}
+    </div>
+  );
+});
+
+export default AboutMe;

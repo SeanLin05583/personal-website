@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef } from 'react';
 import classNames from 'classnames/bind';
 import style from './style.css';
 import { FormattedMessage } from 'react-intl';
@@ -43,8 +43,8 @@ const expList = [
   },
 ];
 
-export default class Experiences extends PureComponent {
-  renderExperiences = () => {
+const Experiences = forwardRef((props, ref) => {
+  const renderExperiences = () => {
     return (
       <div className={cx('exp-inner')}>
         {expList.map((exp, index) =>
@@ -87,13 +87,13 @@ export default class Experiences extends PureComponent {
       </div>
     );
   }
-  render() {
-    const { domRef } = this.props;
-    return (
-      <div ref={domRef} className={cx('exp-container')}>
-        <h2 className={cx('exp-container-title')}>Experiences</h2>
-        {this.renderExperiences()}
-      </div>
-    )
-  }
-}
+
+  return (
+    <div ref={ref} className={cx('exp-container')}>
+      <h2 className={cx('exp-container-title')}>Experiences</h2>
+      {renderExperiences()}
+    </div>
+  )
+});
+
+export default Experiences;

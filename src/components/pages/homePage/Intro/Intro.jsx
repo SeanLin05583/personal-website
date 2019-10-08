@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import CanvasNest from 'canvas-nest.js';
 import Experiences from './Experiences';
 import Skills from './Skills';
@@ -15,49 +15,57 @@ const config = {
 
 const cx = classNames.bind(style);
 
-export default class Intro extends PureComponent {
-  componentDidMount() {
+const Intro = forwardRef((props, ref) => {
+  const introRef = useRef();
+  const abountMeRef = useRef();
+  const skillsRef = useRef();
+  const experiencesRef = useRef();
+  const contactRef = useRef();
+
+  useEffect(() => {
     // not IE browser
     if (!/Trident/.test(navigator.userAgent)) {
-      new CanvasNest(this.introDomRef, config);
+      new CanvasNest(introRef.current, config);
     }
-  }
+  }, []);
 
-  getTargetBlockTop = (targetBlock) => {
-    let targetDOM = null;
-    switch (targetBlock) {
-      case 'AboutMe':
-        targetDOM = this.abountMeRef;
-        break;
-      case 'Skills':
-        targetDOM = this.skillsRef;
-        break;
-      case 'Experiences':
-        targetDOM = this.experiencesRef;
-        break;
-      case 'Contact':
-        targetDOM = this.contactRef;
-        break;
-      default:
-        return 0;
+  useImperativeHandle(ref, () => ({
+    getTargetBlockTop: (targetBlock) => {
+      let targetDOM = null;
+      switch (targetBlock) {
+        case 'AboutMe':
+          targetDOM = abountMeRef.current;
+          break;
+        case 'Skills':
+          targetDOM = skillsRef.current;
+          break;
+        case 'Experiences':
+          targetDOM = experiencesRef.current;
+          break;
+        case 'Contact':
+          targetDOM = contactRef.current;
+          break;
+        default:
+          return 0;
+      }
+
+      return targetDOM.getBoundingClientRect().top + window.pageYOffset;
     }
+  }));
 
-    return targetDOM.getBoundingClientRect().top + window.pageYOffset;
-  }
-
-  render() {
-    return (
-      <div
-        ref={ref => this.introDomRef = ref}
-        className={cx('intro-container')}
-      >
-        <div className={cx('intro')}>
-          <AboutMe domRef={ref => this.abountMeRef = ref} />
-          <Skills domRef={ref => this.skillsRef = ref} />
-          <Experiences domRef={ref => this.experiencesRef = ref} />
-          <Contact domRef={ref => this.contactRef = ref} />
-        </div>
+  return (
+    <div
+      ref={introRef}
+      className={cx('intro-container')}
+    >
+      <div className={cx('intro')}>
+        <AboutMe ref={abountMeRef} />
+        <Skills ref={skillsRef} />
+        <Experiences ref={experiencesRef} />
+        <Contact ref={contactRef} />
       </div>
-    )
-  }
-}
+    </div>
+  );
+})
+
+export default Intro;
