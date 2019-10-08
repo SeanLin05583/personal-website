@@ -98,6 +98,7 @@ class Home extends React.Component {
             ref={this.bannerRef}
             onScrollToBlock={this.handleScrollToBlock}
             blockTitleList={blockTitleList}
+            isMobile={isMobile}
           />
           <Header
             isHeaderFixed={isHeaderFixed}

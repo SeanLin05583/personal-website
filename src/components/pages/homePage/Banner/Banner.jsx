@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useImperativeHandle } from 'react';
+import React, { forwardRef, useRef, useImperativeHandle, useLayoutEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { LangSelector } from 'components/common';
 import classNames from 'classnames/bind';
@@ -8,7 +8,20 @@ const cx = classNames.bind(style);
 
 const Banner = forwardRef((props, ref) => {
   const bannerContainer = useRef(null);
-  const { onScrollToBlock, blockTitleList } = props;
+  const [bannerMinHeight, setBannerMinHeight] = useState(0);
+  const { onScrollToBlock, blockTitleList, isMobile } = props;
+
+  useLayoutEffect(() => {
+    const detactResize = () => {
+      const bannerWidth = bannerContainer.current.offsetWidth;
+      setBannerMinHeight(bannerWidth * (isMobile ? 0.5 : 0.3));
+    }
+    detactResize();
+    window.addEventListener('resize', detactResize);
+    return () => {
+      window.removeEventListener('resize', detactResize);
+    }
+  }, []);
 
   useImperativeHandle(ref, () => ({
     getBannerHeight: () => {
@@ -20,7 +33,11 @@ const Banner = forwardRef((props, ref) => {
   }));
 
   return (
-    <div className={cx('banner-container')} ref={bannerContainer}>
+    <div
+      ref={bannerContainer}
+      className={cx('banner-container')}
+      style={{ minHeight: bannerMinHeight }}
+    >
       <img className={cx('banner-img-web')} src={require('../../../../assets/img/banner_web.png')} />
       <img className={cx('banner-img-mobile')} src={require('../../../../assets/img/banner_mobile.png')} />
       <div className={cx('banner-filter')} />
