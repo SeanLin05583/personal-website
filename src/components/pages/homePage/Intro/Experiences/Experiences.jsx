@@ -39,7 +39,7 @@ const expList = [
       'experience.leo.job.maintain',
       'experience.leo.job.develop',
     ],
-    link: 'https://www.leosys.com',
+    link: 'www.leosys.com',
   },
 ];
 
