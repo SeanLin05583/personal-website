@@ -21,7 +21,7 @@ const Banner = forwardRef((props, ref) => {
     return () => {
       window.removeEventListener('resize', detactResize);
     }
-  }, []);
+  }, [isMobile]);
 
   useImperativeHandle(ref, () => ({
     getBannerHeight: () => {

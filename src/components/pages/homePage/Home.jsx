@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from "react-redux";
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { IntlProvider } from 'react-intl';
 import Banner from './Banner';
 import Header from './Header';
@@ -28,95 +28,87 @@ const blockTitleList = [
   },
 ];
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.bannerRef = React.createRef();
-    this.state = {
-      isHeaderFixed: false,
+const Home = () => {
+  const breakPointState = useSelector(state => state.breakPoint);
+  const language = useSelector(state => state.language);
+  const dispatch = useDispatch();
+  const bannerRef = useRef();
+  const introRef = useRef();
+  const [isHeaderFixed, setIsHeaderFixed] = useState(false);
+  const { isMobile, isPad, isPc } = breakPointState;
+
+  useEffect(() => {
+    dispatch(langActions.initialLang());
+  }, []);
+
+  useEffect(() => {
+    const setHeaderFixed = () => {
+      setIsHeaderFixed(bannerRef.current.getBannerHeight() < window.scrollY);
     }
-  }
 
-  componentDidMount() {
-    this.props.dispatch(langActions.initialLang());
-    this.setBreakPoint();
-    window.addEventListener('scroll', this.setHeaderFixed);
-    window.addEventListener('resize', this.setBreakPoint);
-  }
+    setHeaderFixed();
+    window.addEventListener('scroll', setHeaderFixed);
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.setBreakPoint);
-  }
-
-  setHeaderFixed = () => {
-    const { isMobile } = this.props.breakPointState;
-    if (isMobile) {
-      this.setState({ isHeaderFixed: this.bannerRef.current.getBannerHeight() < window.scrollY });
-    } else {
-      this.setState({ isHeaderFixed: this.bannerRef.current.getBannerBottom() < 0 });
+    return () => {
+      window.removeEventListener('scroll', setHeaderFixed);
     }
-  }
+  }, [isMobile]);
 
-  setBreakPoint = () => {
-    const mobileQuery = `(max-width: ${breakpoint.mobileBreakPoint}px)`;
-    const pcQuery = `(min-width: ${breakpoint.pcBreakPoint + 1}px)`;
+  useEffect(() => {
+    const setBreakPoint = () => {
+      const mobileQuery = `(max-width: ${breakpoint.mobileBreakPoint}px)`;
+      const pcQuery = `(min-width: ${breakpoint.pcBreakPoint + 1}px)`;
 
-    const isMobileMatch = window.matchMedia(mobileQuery).matches;
-    const isPcMatch = window.matchMedia(pcQuery).matches;
-    const isPadMatch = !isMobileMatch && !isPcMatch;
+      const isMobileMatch = window.matchMedia(mobileQuery).matches;
+      const isPcMatch = window.matchMedia(pcQuery).matches;
+      const isPadMatch = !isMobileMatch && !isPcMatch;
 
-    const { isMobile, isPad, isPc } = this.props.breakPointState;
-    if (
-      isMobile !== isMobileMatch ||
-      isPad !== isPadMatch ||
-      isPc !== isPcMatch
-    ) {
-      this.props.dispatch(breakPointActions.setBreakPoint({
-        isMobile: isMobileMatch,
-        isPad: isPadMatch,
-        isPc: isPcMatch,
-      }));
+      if (
+        isMobile !== isMobileMatch ||
+        isPad !== isPadMatch ||
+        isPc !== isPcMatch
+      ) {
+        dispatch(breakPointActions.setBreakPoint({
+          isMobile: isMobileMatch,
+          isPad: isPadMatch,
+          isPc: isPcMatch,
+        }));
+      }
     }
-  }
 
-  handleScrollToBlock = (targetBlock) => () => {
-    const targetY = this.introRef.getTargetBlockTop(targetBlock) - 70;
+    setBreakPoint();
+    window.addEventListener('resize', setBreakPoint);
+
+    return () => {
+      window.removeEventListener('resize', setBreakPoint);
+    }
+  }, []);
+
+  const handleScrollToBlock = (targetBlock) => () => {
+    const targetY = introRef.current.getTargetBlockTop(targetBlock) - 70;
     smoothScroll(targetY);
   }
 
-  render() {
-    const { isHeaderFixed } = this.state;
-    const {
-      breakPointState: { isMobile },
-      language,
-    } = this.props;
-
-    return (
-      <IntlProvider key={language} locale={language} messages={getIntlMessage(language)} >
-        <div style={{ scrollBehavior: 'smooth' }}>
-          <Banner
-            ref={this.bannerRef}
-            onScrollToBlock={this.handleScrollToBlock}
-            blockTitleList={blockTitleList}
-            isMobile={isMobile}
-          />
-          <Header
-            isHeaderFixed={isHeaderFixed}
-            isMobile={isMobile}
-            onScrollToBlock={this.handleScrollToBlock}
-            blockTitleList={blockTitleList}
-          />
-          <Intro ref={ref => this.introRef = ref} />
-          <Footer />
-        </div>
-      </IntlProvider>
-    );
-  }
+  return (
+    <IntlProvider key={language} locale={language} messages={getIntlMessage(language)} >
+      <div style={{ scrollBehavior: 'smooth' }}>
+        <Banner
+          ref={bannerRef}
+          onScrollToBlock={handleScrollToBlock}
+          blockTitleList={blockTitleList}
+          isMobile={isMobile}
+        />
+        <Header
+          isHeaderFixed={isHeaderFixed}
+          isMobile={isMobile}
+          onScrollToBlock={handleScrollToBlock}
+          blockTitleList={blockTitleList}
+        />
+        <Intro ref={introRef} />
+        <Footer />
+      </div>
+    </IntlProvider>
+  );
 }
 
-export default connect(
-  state => ({
-    breakPointState: state.breakPoint,
-    language: state.language,
-  }),
-)(Home);
+export default Home;
