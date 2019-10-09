@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { IntlProvider } from 'react-intl';
 import Banner from './Banner';
@@ -43,7 +43,7 @@ const Home = () => {
 
   useEffect(() => {
     const setHeaderFixed = () => {
-      setIsHeaderFixed(bannerRef.current.getBannerHeight() < window.scrollY);
+      setIsHeaderFixed(bannerRef.current.getBannerHeight() < window.pageYOffset);
     }
 
     setHeaderFixed();
@@ -104,7 +104,11 @@ const Home = () => {
           onScrollToBlock={handleScrollToBlock}
           blockTitleList={blockTitleList}
         />
-        <Intro ref={introRef} />
+        <Intro
+          isHeaderFixed={isHeaderFixed}
+          isMobile={isMobile}
+          ref={introRef}
+        />
         <Footer />
       </div>
     </IntlProvider>

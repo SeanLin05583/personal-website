@@ -21,6 +21,7 @@ const Intro = forwardRef((props, ref) => {
   const skillsRef = useRef();
   const experiencesRef = useRef();
   const contactRef = useRef();
+  const { isHeaderFixed, isMobile } = props;
 
   useEffect(() => {
     // not IE browser
@@ -55,10 +56,12 @@ const Intro = forwardRef((props, ref) => {
 
   return (
     <div
-      ref={introRef}
-      className={cx('intro-container')}
+      className={cx('intro-container', { 'is-header-fixed': isHeaderFixed })}
     >
-      <div className={cx('intro')}>
+      <div
+        ref={introRef}
+        className={cx('intro')}
+      >
         <AboutMe ref={abountMeRef} />
         <Skills ref={skillsRef} />
         <Experiences ref={experiencesRef} />

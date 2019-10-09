@@ -9,8 +9,7 @@
   transition: opacity .2s;
 
   @mixin isMobile {
-    position: absolute;
-    top: unset;
+    position: relative;
     opacity: 1;
   }
 

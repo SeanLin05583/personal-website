@@ -20,6 +20,7 @@
 }
 
 .banner-img-web {
+  display: block;
   width: 100%;
   pointer-events: none;
 
@@ -34,7 +35,7 @@
   pointer-events: none;
 
   @mixin isMobile {
-    display: initial;
+    display: block;
   }
 }
 
