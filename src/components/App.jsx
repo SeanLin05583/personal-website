@@ -15,11 +15,11 @@ const store = createStore(reducers, applyMiddleware(logger));
 addLocaleData([...en, ...zh]);
 
 export default class App extends Component {
-	render() {
-		return (
-			<Provider store={store}>
-				<Home />
-			</Provider>
-		);
-	}
+  render() {
+    return (
+      <Provider store={store}>
+        <Home />
+      </Provider>
+    );
+  }
 }

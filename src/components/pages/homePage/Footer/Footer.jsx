@@ -12,6 +12,6 @@ export default class Footer extends Component {
         <img className={cx('footer-img')} src={require('../../../../assets/img/footer.jpg')} />
         <p className={cx('footer-copy-right')}>Copyright © 2019 Sean Lin</p>
       </footer>
-    )
+    );
   }
 }

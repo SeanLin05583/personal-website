@@ -17,7 +17,7 @@ export default function smoothScroll(targetY, ref) {
   const windowScrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
 
   // 移動方向 往下滑為正 往上滑為負
-  const directionBase = (targetY - targetElementScrollY) > 0 ? 1 : -1;
+  const directionBase = targetY - targetElementScrollY > 0 ? 1 : -1;
 
   // 移動距離與時間間隔根據 滑動距離是否大於整個螢幕高度 有不同的數值
   const isMovingSpaceLargerThanWindowHeight = movingSpacing < windowHeight;
@@ -37,7 +37,7 @@ export default function smoothScroll(targetY, ref) {
       clearInterval(scrollInterval);
       return;
     }
-    if (directionBase * ((scrollToY + directionBase * scrollBase) - targetY) < 0) {
+    if (directionBase * (scrollToY + directionBase * scrollBase - targetY) < 0) {
       scrollToY += directionBase * scrollBase;
       scrollCounter += 1;
       targetElement.scrollTo(0, scrollToY);

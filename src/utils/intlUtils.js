@@ -12,20 +12,20 @@ export const langList = [
     text: 'English',
     abbreviation: 'EN',
     data: enIntlData,
-  }
-]
+  },
+];
 
 // 取得語系包
-export const getIntlMessage = (langKey) => {
+export const getIntlMessage = langKey => {
   return langList.find(langObj => langObj.key === langKey).data || enIntlData;
-}
+};
 
 // 取得語系縮寫
-export const getLangAbbreviation = (langKey) => {
+export const getLangAbbreviation = langKey => {
   return langList.find(langObj => langObj.key === langKey).abbreviation;
-}
+};
 
 // 取得語系文字
-export const getLangText = (langKey) => {
+export const getLangText = langKey => {
   return langList.find(langObj => langObj.key === langKey).text;
-}
+};

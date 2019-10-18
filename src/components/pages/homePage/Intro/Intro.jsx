@@ -31,7 +31,7 @@ const Intro = forwardRef((props, ref) => {
   }, []);
 
   useImperativeHandle(ref, () => ({
-    getTargetBlockTop: (targetBlock) => {
+    getTargetBlockTop: targetBlock => {
       let targetDOM = null;
       switch (targetBlock) {
         case 'AboutMe':
@@ -51,17 +51,12 @@ const Intro = forwardRef((props, ref) => {
       }
 
       return targetDOM.getBoundingClientRect().top + window.pageYOffset;
-    }
+    },
   }));
 
   return (
-    <div
-      className={cx('intro-container', { 'is-header-fixed': isHeaderFixed })}
-    >
-      <div
-        ref={introRef}
-        className={cx('intro')}
-      >
+    <div className={cx('intro-container', { 'is-header-fixed': isHeaderFixed })}>
+      <div ref={introRef} className={cx('intro')}>
         <AboutMe ref={abountMeRef} />
         <Skills ref={skillsRef} />
         <Experiences ref={experiencesRef} />
@@ -69,6 +64,6 @@ const Intro = forwardRef((props, ref) => {
       </div>
     </div>
   );
-})
+});
 
 export default Intro;

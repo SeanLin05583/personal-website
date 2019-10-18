@@ -13,6 +13,6 @@ export default class NavButton extends PureComponent {
         <span />
         <span />
       </div>
-    )
+    );
   }
 }

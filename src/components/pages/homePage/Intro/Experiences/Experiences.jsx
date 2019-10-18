@@ -35,10 +35,7 @@ const expList = [
     imgMobile: imgLeoMobile,
     imgCircle: false,
     imgStyle: 'exp-logo-leo',
-    jobDescriptionList: [
-      'experience.leo.job.maintain',
-      'experience.leo.job.develop',
-    ],
+    jobDescriptionList: ['experience.leo.job.maintain', 'experience.leo.job.develop'],
     link: 'www.leosys.com',
   },
 ];
@@ -47,7 +44,7 @@ const Experiences = forwardRef((props, ref) => {
   const renderExperiences = () => {
     return (
       <div className={cx('exp-inner')}>
-        {expList.map((exp, index) =>
+        {expList.map((exp, index) => (
           <div key={index} className={cx('exp')}>
             <div className={cx('exp-pc-logo-container')}>
               <img className={cx(exp.imgStyle)} src={exp.img} />
@@ -75,25 +72,25 @@ const Experiences = forwardRef((props, ref) => {
                 </div>
               </div>
               <div className={cx('exp-content')}>
-                {exp.jobDescriptionList.map(descKey =>
+                {exp.jobDescriptionList.map(descKey => (
                   <p key={descKey} className={cx('exp-job-description')}>
                     <FormattedMessage id={descKey} />
                   </p>
-                )}
+                ))}
               </div>
             </section>
           </div>
-        )}
+        ))}
       </div>
     );
-  }
+  };
 
   return (
     <div ref={ref} className={cx('exp-container')}>
       <h2 className={cx('exp-container-title')}>Experiences</h2>
       {renderExperiences()}
     </div>
-  )
+  );
 });
 
 export default Experiences;

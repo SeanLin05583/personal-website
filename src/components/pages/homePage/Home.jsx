@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import Banner from './Banner';
 import Header from './Header';
@@ -44,14 +44,14 @@ const Home = () => {
   useEffect(() => {
     const setHeaderFixed = () => {
       setIsHeaderFixed(bannerRef.current.getBannerHeight() < window.pageYOffset);
-    }
+    };
 
     setHeaderFixed();
     window.addEventListener('scroll', setHeaderFixed);
 
     return () => {
       window.removeEventListener('scroll', setHeaderFixed);
-    }
+    };
   }, [isMobile]);
 
   useEffect(() => {
@@ -63,34 +63,32 @@ const Home = () => {
       const isPcMatch = window.matchMedia(pcQuery).matches;
       const isPadMatch = !isMobileMatch && !isPcMatch;
 
-      if (
-        isMobile !== isMobileMatch ||
-        isPad !== isPadMatch ||
-        isPc !== isPcMatch
-      ) {
-        dispatch(breakPointActions.setBreakPoint({
-          isMobile: isMobileMatch,
-          isPad: isPadMatch,
-          isPc: isPcMatch,
-        }));
+      if (isMobile !== isMobileMatch || isPad !== isPadMatch || isPc !== isPcMatch) {
+        dispatch(
+          breakPointActions.setBreakPoint({
+            isMobile: isMobileMatch,
+            isPad: isPadMatch,
+            isPc: isPcMatch,
+          })
+        );
       }
-    }
+    };
 
     setBreakPoint();
     window.addEventListener('resize', setBreakPoint);
 
     return () => {
       window.removeEventListener('resize', setBreakPoint);
-    }
+    };
   }, []);
 
-  const handleScrollToBlock = (targetBlock) => () => {
+  const handleScrollToBlock = targetBlock => () => {
     const targetY = introRef.current.getTargetBlockTop(targetBlock) - 70;
     smoothScroll(targetY);
-  }
+  };
 
   return (
-    <IntlProvider key={language} locale={language} messages={getIntlMessage(language)} >
+    <IntlProvider key={language} locale={language} messages={getIntlMessage(language)}>
       <div style={{ scrollBehavior: 'smooth' }}>
         <Banner
           ref={bannerRef}
@@ -104,15 +102,11 @@ const Home = () => {
           onScrollToBlock={handleScrollToBlock}
           blockTitleList={blockTitleList}
         />
-        <Intro
-          isHeaderFixed={isHeaderFixed}
-          isMobile={isMobile}
-          ref={introRef}
-        />
+        <Intro isHeaderFixed={isHeaderFixed} isMobile={isMobile} ref={introRef} />
         <Footer />
       </div>
     </IntlProvider>
   );
-}
+};
 
 export default Home;

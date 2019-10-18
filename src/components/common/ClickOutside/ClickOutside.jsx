@@ -5,7 +5,7 @@ class ClickOutside extends Component {
   handleClickOutside = e => {
     const { onClick } = this.props;
     onClick(e);
-  }
+  };
 
   render() {
     return this.props.children;

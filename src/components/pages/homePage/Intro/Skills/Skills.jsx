@@ -51,22 +51,22 @@ const Skills = forwardRef((props, ref) => {
       <h2 className={cx('skills-container-title')}>Skills</h2>
       <div className={cx('skill-intro-container')}>
         <ul className={cx('skill-intro-inner')}>
-          {skillIntroKeyList.map((introKey, index) =>
+          {skillIntroKeyList.map((introKey, index) => (
             <li key={index} className={cx('skill-intro')}>
               <FormattedMessage id={introKey} />
             </li>
-          )}
+          ))}
         </ul>
       </div>
       <div className={cx('skills-container')}>
-        {skillList.map(skill =>
+        {skillList.map(skill => (
           <div key={skill.name} className={cx('skill-container')}>
             <img src={skill.img} className={cx('skill-img')} />
             <div className={cx('skill-content')}>
               <p className={cx('skill-title')}>{skill.name}</p>
             </div>
           </div>
-        )}
+        ))}
       </div>
     </div>
   );

@@ -5,18 +5,21 @@ const initialState = {
   isMobile: false,
   isPad: false,
   isPc: false,
-}
+};
 
-const reducer = handleActions({
-  [actions.setBreakPoint]: (state, action) => {
-    const { isMobile, isPad, isPc } = action.payload;
-    return {
-      ...state,
-      isMobile,
-      isPad,
-      isPc,
-    }
+const reducer = handleActions(
+  {
+    [actions.setBreakPoint]: (state, action) => {
+      const { isMobile, isPad, isPc } = action.payload;
+      return {
+        ...state,
+        isMobile,
+        isPad,
+        isPc,
+      };
+    },
   },
-}, initialState);
+  initialState
+);
 
 export default reducer;

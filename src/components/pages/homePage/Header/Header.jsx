@@ -6,7 +6,7 @@ import style from './style.css';
 
 const cx = classNames.bind(style);
 
-const Header = (props) => {
+const Header = props => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isHeaderFixed, isMobile, onScrollToBlock, blockTitleList } = props;
 
@@ -16,12 +16,12 @@ const Header = (props) => {
 
   const handleNavClick = () => {
     setIsMenuOpen(prevState => !prevState);
-  }
+  };
 
-  const handleMenuItemClick = (targetBlock) => () => {
+  const handleMenuItemClick = targetBlock => () => {
     onScrollToBlock(targetBlock)();
     setIsMenuOpen(false);
-  }
+  };
 
   return (
     <header className={cx('header-container', isHeaderFixed && 'fixed')}>
@@ -29,50 +29,46 @@ const Header = (props) => {
         <h1 className={cx('header-title')}>
           <FormattedMessage id="profile.title" />
         </h1>
-        {!isMobile &&
+        {!isMobile && (
           <div className={cx('header-web-nav-container')}>
-            {blockTitleList.map(blockObj =>
-              <div
-                key={blockObj.key}
-                className={cx('header-web-nav-item')}
-                onClick={onScrollToBlock(blockObj.key)}
-              >
+            {blockTitleList.map(blockObj => (
+              <div key={blockObj.key} className={cx('header-web-nav-item')} onClick={onScrollToBlock(blockObj.key)}>
                 <span className={cx('header-web-nav-block-name')}>
                   <FormattedMessage id={blockObj.intlId} />
                 </span>
               </div>
-            )}
+            ))}
             <div className={cx('header-lang-selector-container')}>
               <LangSelector isShowPadding={false} />
             </div>
           </div>
-        }
-        {isMobile &&
+        )}
+        {isMobile && (
           <div className={cx('header-mobile-left')}>
             <div className={cx('header-mobile-lang-selector-container')}>
               <LangSelector isShowPadding={false} />
             </div>
             <NavButton isOpen={isMenuOpen} onClick={handleNavClick} />
           </div>
-        }
+        )}
       </div>
-      {isMobile &&
+      {isMobile && (
         <nav className={cx('header-mobile-menu', isMenuOpen && 'is-open')}>
           <ul>
-            {blockTitleList.map(blockObj =>
+            {blockTitleList.map(blockObj => (
               <li key={blockObj.key} onClick={handleMenuItemClick(blockObj.key)}>
                 <FormattedMessage id={blockObj.intlId} />
               </li>
-            )}
+            ))}
           </ul>
         </nav>
-      }
+      )}
     </header>
   );
-}
+};
 
 Header.defaultProps = {
   isHeaderFixed: false,
-}
+};
 
 export default Header;

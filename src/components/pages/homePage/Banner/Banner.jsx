@@ -15,12 +15,12 @@ const Banner = forwardRef((props, ref) => {
     const detactResize = () => {
       const bannerWidth = bannerContainer.current.offsetWidth;
       setBannerMinHeight(bannerWidth * (isMobile ? 0.5 : 0.3));
-    }
+    };
     detactResize();
     window.addEventListener('resize', detactResize);
     return () => {
       window.removeEventListener('resize', detactResize);
-    }
+    };
   }, [isMobile]);
 
   useImperativeHandle(ref, () => ({
@@ -29,15 +29,11 @@ const Banner = forwardRef((props, ref) => {
     },
     getBannerBottom: () => {
       return bannerContainer.current.getBoundingClientRect().bottom;
-    }
+    },
   }));
 
   return (
-    <div
-      ref={bannerContainer}
-      className={cx('banner-container')}
-      style={{ minHeight: bannerMinHeight }}
-    >
+    <div ref={bannerContainer} className={cx('banner-container')} style={{ minHeight: bannerMinHeight }}>
       <img className={cx('banner-img-web')} src={require('../../../../assets/img/banner_web.png')} />
       <img className={cx('banner-img-mobile')} src={require('../../../../assets/img/banner_mobile.png')} />
       <div className={cx('banner-filter')} />
@@ -48,11 +44,11 @@ const Banner = forwardRef((props, ref) => {
       </div>
       <div className={cx('banner-menu-container')}>
         <ul className={cx('banner-menu')}>
-          {blockTitleList.map(blockObj =>
+          {blockTitleList.map(blockObj => (
             <li key={blockObj.key} onClick={onScrollToBlock(blockObj.key)}>
               <FormattedMessage id={blockObj.intlId} />
             </li>
-          )}
+          ))}
         </ul>
         <LangSelector />
       </div>

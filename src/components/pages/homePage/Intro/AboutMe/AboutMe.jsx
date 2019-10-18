@@ -33,7 +33,7 @@ const AboutMe = forwardRef((props, ref) => {
           <img src={PersonalImg} className={cx('personal-img')} />
           <div className={cx('aboutme-description-container')}>
             <p className={cx('abount-me-name')}>Sean Lin</p>
-            {descriptionList.map((obj, index) =>
+            {descriptionList.map((obj, index) => (
               <p key={index} className={cx('aboutme-description')}>
                 <span className={cx('aboutme-description-title')}>
                   <FormattedMessage id={obj.titleId} />
@@ -42,7 +42,7 @@ const AboutMe = forwardRef((props, ref) => {
                   <FormattedMessage id={obj.descriptionId} />
                 </span>
               </p>
-            )}
+            ))}
           </div>
         </div>
       </div>

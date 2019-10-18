@@ -16,17 +16,11 @@ const Skills = forwardRef((props, ref) => {
           <FormattedMessage id="contact.name" />
         </div>
         <div className={cx('contact-method')}>
-          <span className={cx('contact-method-title')}>
-            Email：
-          </span>
-          <span className={cx('contact-method-content')}>
-            seanlin05583@gmail.com
-          </span>
+          <span className={cx('contact-method-title')}>Email：</span>
+          <span className={cx('contact-method-content')}>seanlin05583@gmail.com</span>
         </div>
         <div className={cx('contact-method')}>
-          <span className={cx('contact-method-title')}>
-            Mobile：
-          </span>
+          <span className={cx('contact-method-title')}>Mobile：</span>
           <span className={cx('contact-method-content')}>
             <span>+886 981-676-912</span>
             <span> (18:30 ~ 23:00)</span>
@@ -42,7 +36,7 @@ const Skills = forwardRef((props, ref) => {
         </div>
       </div>
     </div>
-  )
+  );
 });
 
 export default Skills;
