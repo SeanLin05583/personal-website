@@ -8,7 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --mode development",
     "build": "MODE=publish webpack --mode production",
-    "deploy": "gh-pages -m 'auto commit [ci skip]' -d dist"
+    "deploy": "gh-pages -m 'auto commit [ci skip]' -d dist",
+    "lint": "eslint ./src --ext .js,.jsx",
+    "lint:fix": "eslint ./src --ext .js,.jsx --fix"
   },
   "keywords": [],
   "author": "",
@@ -33,9 +35,12 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.4.8",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^1.0.1",
     "css-loader": "^2.1.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^3.0.1",

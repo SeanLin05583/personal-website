@@ -66,7 +66,7 @@ const Experiences = forwardRef((props, ref) => {
               <div className={cx('exp-sub-title-container')}>
                 <img className={cx('exp-logo-mobile', exp.imgStyle)} src={exp.imgMobile || exp.img} />
                 <div className={cx('exp-sub-title')}>
-                  <a className={cx('exp-company-title')} href={exp.link} target="_blank">
+                  <a className={cx('exp-company-title')} href={exp.link} target="_blank" rel="noreferrer noopener">
                     <FormattedMessage id={exp.companyTitle} />
                   </a>
                   <p className={cx('exp-job-title')}>

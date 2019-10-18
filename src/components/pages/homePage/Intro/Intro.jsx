@@ -21,7 +21,7 @@ const Intro = forwardRef((props, ref) => {
   const skillsRef = useRef();
   const experiencesRef = useRef();
   const contactRef = useRef();
-  const { isHeaderFixed, isMobile } = props;
+  const { isHeaderFixed } = props;
 
   useEffect(() => {
     // not IE browser
