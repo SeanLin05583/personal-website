@@ -8,11 +8,26 @@ const cx = classNames.bind(style);
 
 const Header = props => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHeaderShow, setIsHeaderShow] = useState(true);
   const { isHeaderFixed, isMobile, onScrollToBlock, blockTitleList } = props;
+  let headerShowTimer = null;
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [isMobile, isHeaderFixed]);
+
+  useEffect(() => {
+    if (headerShowTimer) {
+      clearTimeout(headerShowTimer);
+    }
+    if (!isMobile) {
+      if (isHeaderFixed === false) {
+        headerShowTimer = setTimeout(() => setIsHeaderShow(false), 200);
+      } else {
+        setIsHeaderShow(true);
+      }
+    }
+  }, [isHeaderFixed]);
 
   const handleNavClick = () => {
     setIsMenuOpen(prevState => !prevState);
@@ -24,7 +39,7 @@ const Header = props => {
   };
 
   return (
-    <header className={cx('header-container', isHeaderFixed && 'fixed')}>
+    <header className={cx('header-container', isHeaderFixed && 'fixed', !isHeaderShow && 'is-hidden')}>
       <div className={cx('header', isMenuOpen && 'open')}>
         <h1 className={cx('header-title')}>
           <FormattedMessage id="profile.title" />
