@@ -36,7 +36,7 @@ const expList = [
     imgCircle: false,
     imgStyle: 'exp-logo-leo',
     jobDescriptionList: ['experience.leo.job.maintain', 'experience.leo.job.develop'],
-    link: 'www.leosys.com',
+    link: 'http://www.leosys.com',
   },
 ];
 
