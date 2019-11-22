@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames/bind';
 import style from './style.css';
 
-import PersonalImg from 'assets/img/personal_img.png';
+import PersonalImg from 'assets/img/personal_img.jpg';
 
 const cx = classNames.bind(style);
 
