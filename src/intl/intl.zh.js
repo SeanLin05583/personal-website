@@ -23,7 +23,7 @@ export default {
   'experience.accupass.job.title': '前端工程師',
   'experience.accupass.job.website':
     '主要負責亞洲領先活動平台 - Accupass 官方網站前端開發維護，與 RD 團隊中另外兩位前端、三位後端合作，打造體驗最好、操作流暢的 RWD 網站',
-  'experience.accupass.job.support': '支援其他部門的前端專案，開發單頁式廣告、宣傳頁或主題專區',
+  'experience.accupass.job.support': '支援商業/行銷部門之特別專案，開發單頁式廣告、宣傳頁或主題專區',
   'experience.accupass.job.git': '優化前端團隊開發產品之 Git Flow，使版控與上版更順利',
   'experience.accupass.job.refactor': '關注開源的最新寫法，重構現有程式與架構，廢除舊寫法',
   'experience.accupass.job.ux': '與 UI/UX 設計師合作，站在使用者的角度提供最佳可行方案',

@@ -25,7 +25,7 @@ export default {
   'experience.accupass.job.website':
     'Mainly responsible for front-end development of the official website of Accupass, the leading event platform in Asia, cooperate with 3 back-end developers and 2 others front-end developers in RD team, build a responsive website with good user experience.',
   'experience.accupass.job.support':
-    'Support special project from other department, develop including single-page campaign, landing page or theme event website.',
+    'Support special project from business/marketing department, develop including single-page campaign, landing page or theme event website.',
   'experience.accupass.job.git': 'Optimize workflow of front-end team, make deployment more easier.',
   'experience.accupass.job.refactor':
     'Interest in the new release of open source library, remove legacy method and function, refactor make things easier.',
