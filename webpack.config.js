@@ -22,6 +22,7 @@ module.exports = {
       configs: path.resolve(__dirname, 'src/configs/'),
       utils: path.resolve(__dirname, 'src/utils/'),
       intl: path.resolve(__dirname, 'src/intl/'),
+      projects: path.resolve(__dirname, 'src/side-projects/'),
     },
     extensions: ['.js', '.jsx'],
   },

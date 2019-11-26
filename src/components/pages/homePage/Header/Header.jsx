@@ -27,6 +27,10 @@ const Header = props => {
         setIsHeaderShow(true);
       }
     }
+
+    return () => {
+      clearTimeout(headerShowTimer);
+    };
   }, [isHeaderFixed]);
 
   const handleNavClick = () => {
