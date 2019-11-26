@@ -27,7 +27,7 @@ export default class App extends Component {
               <Home />
             </Provider>
           </Route>
-          <Route path="/git" component={GitRepoSearch} />
+          <Route path="/git-repo-search" component={GitRepoSearch} />
         </Switch>
       </Router>
     );
