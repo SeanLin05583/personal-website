@@ -13,6 +13,9 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: `bundle.js?[hash:7]${moment().format('YYYY-MM-DD HH:mm')}`,
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   resolve: {
     alias: {
       components: path.resolve(__dirname, 'src/components/'),
@@ -77,6 +80,10 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './404.html',
     }),
     new CleanWebpackPlugin(['dist']),
     new FaviconsWebpackPlugin({
