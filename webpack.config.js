@@ -1,4 +1,5 @@
 var path = require('path');
+const webpack = require('webpack');
 const moment = require('moment');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
@@ -10,6 +11,7 @@ const imgPath = process.env.MODE === 'publish' ? '/seanlin-profile' : '/';
 module.exports = {
   entry: './src/index.js',
   output: {
+    publicPath: process.env.MODE === 'publish' ? '/seanlin-profile' : '/',
     path: path.resolve(__dirname, './dist'),
     filename: `bundle.js?[hash:7]${moment().format('YYYY-MM-DD HH:mm')}`,
   },
@@ -55,8 +57,10 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              localIdentName: '[name]-[hash:base64:8]-[local]',
+              importLoaders: 2,
+              modules: {
+                localIdentName: '[name]-[hash:base64:8]-[local]',
+              },
             },
           },
           { loader: 'postcss-loader' },
@@ -77,6 +81,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        MODE: JSON.stringify(process.env.MODE === 'publish' ? 'publish' : 'development'),
+      },
+    }),
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',

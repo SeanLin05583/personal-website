@@ -1,0 +1,20 @@
+.circle-spinner {
+  display: block;
+  height: 1em;
+  width: 1em;
+  margin: auto;
+  border-radius: 50%;
+  border: .1em solid rgba(255, 255, 255, 0.16);
+  border-top-color: #CCCCCC;
+  animation: spinner .5s linear infinite;
+
+  &.white {
+    border-top-color: #FFFFFF;
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

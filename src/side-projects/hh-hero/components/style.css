@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-family: monospace, Microsoft JhengHei;
+  min-width: 320px;
+  font-size: 14px;
+  color: #282828;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #282828;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+}

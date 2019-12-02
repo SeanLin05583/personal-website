@@ -1,0 +1,97 @@
+.hero-list-container {
+  margin: 60px 0 30px;
+}
+
+.hero-list-title {
+  position: relative;
+  font-size: 36px;
+  text-align: center;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    width: 60px;
+    height: 5px;
+    background-color: #00BEA4;
+    transform: translateX(-50%);
+    transition: all .2s;
+    animation: grow .4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @mixin isMobile {
+    font-size: 28px;
+    padding: 0 15px;
+
+    &:after {
+      width: 55px;
+      height: 4px;
+    }
+  }
+}
+
+@keyframes grow {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 60px;
+  }
+}
+
+.hero-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.hero-card-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  margin: 10px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px #CCCCCC;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    .hero-card-img {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.hero-card-img-container {
+  width: 200px;
+  height: 200px;
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+
+  @mixin isMobile {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.hero-card-img {
+  width: 100%;
+  pointer-events: none;
+  transition: all .3s;
+}
+
+.hero-card-name {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 0 0 3px 3px;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transition: all .2s;
+
+  &.is-hero-selected {
+    border-bottom-color: #FA8B00;
+  }
+}

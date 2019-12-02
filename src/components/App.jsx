@@ -11,6 +11,7 @@ import en from 'react-intl/locale-data/en';
 import zh from 'react-intl/locale-data/zh';
 import Home from 'components/pages/homePage';
 import GitRepoSearch from 'projects/git-repo-search';
+import HaHowHero from 'projects/hh-hero';
 import './normalize.css';
 import './style.css';
 
@@ -20,7 +21,7 @@ addLocaleData([...en, ...zh]);
 export default class App extends Component {
   render() {
     return (
-      <Router basename="/seanlin-profile">
+      <Router basename={process.env.MODE === 'publish' ? '/seanlin-profile' : ''}>
         <Switch>
           <Route exact path="/">
             <Provider store={store}>
@@ -28,6 +29,7 @@ export default class App extends Component {
             </Provider>
           </Route>
           <Route path="/git-repo-search" component={GitRepoSearch} />
+          <Route path="/hh-hero" component={HaHowHero} />
         </Switch>
       </Router>
     );
