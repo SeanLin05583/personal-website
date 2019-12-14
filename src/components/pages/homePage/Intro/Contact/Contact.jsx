@@ -19,13 +19,13 @@ const Skills = forwardRef((props, ref) => {
           <span className={cx('contact-method-title')}>Email：</span>
           <span className={cx('contact-method-content')}>seanlin05583@gmail.com</span>
         </div>
-        <div className={cx('contact-method')}>
+        {/* <div className={cx('contact-method')}>
           <span className={cx('contact-method-title')}>Mobile：</span>
           <span className={cx('contact-method-content')}>
             <span>+886 981-676-912</span>
             <span> (18:30 ~ 23:00)</span>
           </span>
-        </div>
+        </div> */}
         <div className={cx('contact-social-media-container')}>
           <a href="https://www.linkedin.com/in/sean-lin-06b2b4155/" target="_blank">
             <i className={cx('fab', 'fa-linkedin', 'contact-btn', 'contact-linkin')} />

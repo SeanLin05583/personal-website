@@ -6,7 +6,7 @@ export default {
   'about.me.list.webpack': 'Experience with common front-end development tools such as Babel, Webpack, NPM, etc.',
   'about.me.list.get': 'Familiarity with VCS (Git)',
   'about.me.list.team.player': 'Team Player',
-  'about.me.list.time.manage': 'Good time-management skills',
+  'about.me.list.time.manage': 'Good time-management',
   'about.me.list.product':
     'Ability to understand business requirements, help PM translate requirements into technical solutions',
   'about.me.list.ui.ix': 'High UI / UX sense, discuss with designer for the better user experience',
