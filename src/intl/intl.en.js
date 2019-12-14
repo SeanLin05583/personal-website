@@ -26,9 +26,9 @@ export default {
     'Mainly responsible for front-end development of the official website of Accupass, the leading event platform in Asia, cooperate with 3 back-end developers and 2 others front-end developers in RD team, build a responsive website with good user experience.',
   'experience.accupass.job.support':
     'Support special project from business/marketing department, develop including single-page campaign, landing page or theme event website.',
-  'experience.accupass.job.git': 'Optimize workflow of front-end team, make deployment more easier.',
+  'experience.accupass.job.git': 'Optimize workflow of front-end team, including Git Flow and deployment Flow.',
   'experience.accupass.job.refactor':
-    'Interest in the new release of open source library, remove legacy method and function, refactor make things easier.',
+    'Follow the new release of open source library, refactor code base and file structure, Import eslint + prettier to unify team coding style.',
   'experience.accupass.job.ux':
     'Work with UI/UX designer, stand at user’s point to provide the best possible solution.',
   'experience.leo.name': 'Leosys 國眾電腦',
