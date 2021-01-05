@@ -16,7 +16,7 @@
   "author": "Sean Lin",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "canvas-nest.js": "^2.0.4",
     "classnames": "^2.2.6",
     "js-cookie": "^2.2.1",
