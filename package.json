@@ -20,7 +20,7 @@
     "canvas-nest.js": "^2.0.4",
     "classnames": "^2.2.6",
     "js-cookie": "^2.2.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.4",
     "react-dom": "^16.10.2",
